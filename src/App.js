@@ -3,7 +3,7 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import Spinner from './Components/Spinner/Spinner'
 import MainRouter from './MainRouter'
 import {Provider } from 'react-redux'
-import store from './Components/redux/store'
+import store from './Components/redux/store/store'
 import './App.css';
 
 function App() {

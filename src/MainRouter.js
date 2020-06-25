@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import {Route, Switch} from 'react-router-dom'
-import Toastify from "./Component/Toastify/Toastify";
+import Toastify from "./Components/Toastify/Toastify";
 
-const Signup = React.lazy(() => import("./Component/Signup/Signup"));
-const Navbar = React.lazy(() => import("./Component/navbar/Navbar"));
-const Login = React.lazy(() => import("./Component/Login/Login"));
+const Signup = React.lazy(() => import("./Components/Signup/Signup"));
+const Navbar = React.lazy(() => import("./Components/Navbar/Navbar"));
+const Login = React.lazy(() => import("./Components/Login/Login"));
 
 export default class MainRouter extends Component {
     render() {
@@ -15,7 +15,6 @@ export default class MainRouter extends Component {
                 <Switch>
                     <Route exact path='/sign-up' component={Signup} />
                     <Route exact path= '/login' component={Login} />
-                    
                 </Switch>
             </>
         )
