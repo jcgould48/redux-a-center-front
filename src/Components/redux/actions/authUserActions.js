@@ -44,4 +44,20 @@ export const logout = () => (dispatch)=> {
     type: LOGOUT
   })
 }
+export const setAuthSuccessUser = (jwtToken) => (dispatch) => {
+  setAuthToken(jwtToken);
+
+  localStorage.setItem("jwtToken", jwtToken);
+  let decoded = jwt_decode(jwtToken);
+  dispatch({
+    type: LOGIN,
+    payload: decoded
+  });
+};
+export const checkReloadToken = (decoded) => (dispatch) => {
+  dispatch({
+    type:LOGIN,
+    payload:decoded,
+  })
+}
 

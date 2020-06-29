@@ -33,5 +33,5 @@ export default class AuthNavLink extends Component {
     }
 }
 
-export default AuthNavLink
+
 
