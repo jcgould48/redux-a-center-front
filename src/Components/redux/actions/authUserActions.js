@@ -18,7 +18,7 @@ export const signupApi = (userInfo) => async (dispatch) => {
   }
 }
 
-export const loginApi = (userInfo) => async (dispatch) => {
+export const login = (userInfo) => async (dispatch) => {
   try {
     let success = await axios.post(
       "/api/users/login",
@@ -44,4 +44,4 @@ export const logout = () => (dispatch)=> {
     type: LOGOUT
   })
 }
->>>>>>> f7b7f9802c7690b3208cc2dd91ce4ec28673187a
+

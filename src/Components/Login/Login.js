@@ -3,12 +3,8 @@ import validator from 'validator'
 import InputGroup from '../SharedGroup/InputGroup'
 import ButtonGroup from '../SharedGroup/ButtonGroup'
 import {successToast, failureToast} from '../Toastify/Toast'
-<<<<<<< HEAD
 import {login} from '../redux/actions/authUserActions'
-=======
-import {loginApi} from '../redux/actions/authUserActions'
 import {connect} from 'react-redux'
->>>>>>> f7b7f9802c7690b3208cc2dd91ce4ec28673187a
 import {checkToken} from '../PrivateRoute/CheckToken'
 
 export class Login extends Component {
@@ -128,11 +124,8 @@ onSubmit = async (event, dispatch) => {
     const { email, password } = this.state.formConfig;
     try {
 
-<<<<<<< HEAD
         await this.props.login({
-=======
-        await this.props.loginApi({
->>>>>>> f7b7f9802c7690b3208cc2dd91ce4ec28673187a
+
             email:email.value,
             password: password.value,
           })
@@ -194,8 +187,4 @@ onSubmit = async (event, dispatch) => {
 
 const mapStateToProps = (state) => ({});
 
-<<<<<<< HEAD
 export default connect(mapStateToProps, {login})(Login);
-=======
-export default connect(mapStateToProps, {loginApi})(Login);
->>>>>>> f7b7f9802c7690b3208cc2dd91ce4ec28673187a
