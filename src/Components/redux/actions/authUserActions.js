@@ -1,2 +1,3 @@
-export const loginAPI = (userInfo) => async (dispatch) =>{
+
+export const login = (userInfo) => async (dispatch) =>{
   };
