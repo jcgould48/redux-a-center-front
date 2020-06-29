@@ -4,6 +4,7 @@ import InputGroup from '../SharedGroup/InputGroup'
 import ButtonGroup from '../SharedGroup/ButtonGroup'
 import {successToast, failureToast} from '../Toastify/Toast'
 import {loginApi} from '../redux/actions/authUserActions'
+import {connect} from 'react-redux'
 import {checkToken} from '../PrivateRoute/CheckToken'
 
 export class Login extends Component {
@@ -123,7 +124,7 @@ onSubmit = async (event, dispatch) => {
     const { email, password } = this.state.formConfig;
     try {
 
-        await this.props.loginAPI({
+        await this.props.loginApi({
             email:email.value,
             password: password.value,
           })
@@ -185,4 +186,4 @@ onSubmit = async (event, dispatch) => {
 
 const mapStateToProps = (state) => ({});
 
-export default connect(mapStateToProps, {loginAPI})(Login);
+export default connect(mapStateToProps, {loginApi})(Login);
