@@ -1,0 +1,41 @@
+.birthday {
+    max-width: 786px;
+    margin: 0 auto;
+  }
+  .birthday--input-container {
+    text-align: center;
+    margin-top: 8rem;
+  }
+  .form-style {
+    margin: 10px 10px;
+    width: 393px;
+    height: 1.5rem;
+    border-width: 0 0 2px;
+    outline: 0;
+  }
+  .birthday--input-date {
+    width: 393px;
+    font-size: 15px;
+    border-width: 0 0 2px;
+  }
+ 
+  .form-button {
+    width: 5rem;
+    padding: 10px 8px;
+    border-radius: 20px;
+    background-color: grey;
+    color: white;
+    margin-top: 25px;
+  }
+  .form-button-valid {
+    background-color: green;
+  }
+  .invalid:focus {
+    border-color: red;
+  }
+  .invalid {
+    border-color: red;
+  }
+  .invalid-message {
+    color: red;
+  }
