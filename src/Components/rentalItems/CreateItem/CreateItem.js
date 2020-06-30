@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import validator from "validator";
-import ButtonGroup from "../../shared/ButtonGroup";
-import MultiInputGroup from "../../shared/MultiInputGroup";
+import ButtonGroup from "../../SharedGroup/ButtonGroup";
+import MultiInputGroup from "../../SharedGroup/MultiInputGroup";
 import {createItem} from "../../redux/actions/itemActions"
 import {CREATE_ITEM} from "../../redux/constants/itemConstant"
 import { successToast, failureToast } from "../../Toastify/Toast";
 import "./CreateItem.css";
-
-
 
 export class CreateItem extends Component {
   constructor(props) {

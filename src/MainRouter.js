@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Route, Switch} from 'react-router-dom'
 import Toastify from "./Components/Toastify/Toastify";
-// import PrivateRoute from './Components/PrivateRoute/PrivateRoute'
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute'
 
 
 const Signup = React.lazy(() => import("./Components/Signup/Signup"));
