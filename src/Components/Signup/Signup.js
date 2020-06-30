@@ -167,6 +167,7 @@ export class Signup extends Component {
                 formSetting: inputForm,
                 onSubmit: false,
             });
+            this.props.history.push('/login')
         } catch (e) {
             failureToast(e);
         }
@@ -180,7 +181,7 @@ export class Signup extends Component {
             })
         }
         return (
-            <div>
+            <div className="signup-container">
                 <h1>Sign up</h1>
                 <form className="signup-form" onSubmit={this.onSubmit}>
                     {inputArray.map((element) => {
