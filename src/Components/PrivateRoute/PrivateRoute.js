@@ -1,10 +1,11 @@
 import React from 'react'
 import {Route, Redirect} from 'react-router-dom'
-import {isAuthenticated } from '../Helpers/AuthHelpers/'
+import {isAuthenticated } from '../Helpers/AuthHelpers'
+
 
 function PrivateRoute({ component: Component, ...rest }) {
     return (
-        <Route 
+        <Route
             {...rest}
             render={(props =>
                 isAuthenticated() ? (
@@ -17,5 +18,4 @@ function PrivateRoute({ component: Component, ...rest }) {
         />
     )
 }
-
 export default PrivateRoute;

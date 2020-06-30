@@ -1,4 +1,4 @@
-import Axios from './Axios'
+import Axios from '../redux/lib/Axios/Axios'
 import Cookies from 'js-cookie'
 import jwt_decode from 'jwt-decode'
 
@@ -13,7 +13,7 @@ export const createUser = async (userInfo) => {
     }
 }
 
-export const isAuthenticated = ( ) => {
+export const isAuthenticated = () => {
     if (typeof window == 'undefined') return false;
     
     let foundCookie = Cookies.get('jwt-cookie-recenter')
