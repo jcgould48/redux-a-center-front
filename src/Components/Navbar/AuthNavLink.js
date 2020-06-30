@@ -9,6 +9,17 @@ export default class AuthNavLink extends Component {
             <ul>
                 <li>
                     <NavLink
+                        to='/home'
+                        className='navbar'
+                        activeStyle={{fontWeight: 'bold'}}
+                        activeClassName='selected'
+                        
+                    >
+                        Create Rental
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
                         to='/user-profile'
                         className='navbar'
                         activeStyle={{ fontWeight: 'bold'}}

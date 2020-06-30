@@ -7,8 +7,8 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute'
 const Signup = React.lazy(() => import("./Components/Signup/Signup"));
 const Navbar = React.lazy(() => import("./Components/Navbar/Navbar"));
 const Login = React.lazy(() => import("./Components/Login/Login"));
-const Home = React.lazy(() => import("./Components/Home/Home"));
-
+const Landing = React.lazy(() => import("./Components/Landing/Landing"));
+const Home = React.lazy(() => import('./Components/Home/Home'))
 // const RentalItems =  React.lazy(() => import ('./Components/RentalItems/RentalItems'))
 const CreateItem =  React.lazy(() => import ('./Components/RentalItems/CreateItem/CreateItem'))
 
@@ -21,9 +21,10 @@ export default class MainRouter extends Component {
                 <Switch>
                     <Route exact path='/sign-up' component={Signup} />
                     <Route exact path= '/login' component={Login} />
+                    <Route exact path='/home' component={Home} />
                     {/* <PrivateRoute  exact path='/items' component={RentalItems}/> */}
                     <PrivateRoute  exact path='/create-item' component={CreateItem}/>
-                    <Route exact path= '/' component={Home} />
+                    <Route exact path= '/' component={Landing} />
                 </Switch>
                 <h1>Redux a Center</h1>
             </>
