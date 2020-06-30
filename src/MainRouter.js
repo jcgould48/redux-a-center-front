@@ -10,7 +10,7 @@ const Login = React.lazy(() => import("./Components/Login/Login"));
 const Home = React.lazy(() => import("./Components/Home/Home"));
 
 // const RentalItems =  React.lazy(() => import ('./Components/RentalItems/RentalItems'))
-const CreateItem =  React.lazy(() => import ('./Components/rentalItems/CreateItem/CreateItem'))
+const CreateItem =  React.lazy(() => import ('./Components/RentalItems/CreateItem/CreateItem'))
 
 export default class MainRouter extends Component {
     render() {
