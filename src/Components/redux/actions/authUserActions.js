@@ -1,6 +1,6 @@
 import setAuthToken from '../lib/Axios/setAuthToken'
 import jwt_decode from 'jwt-decode'
-import {SIGN_UP, LOGIN, LOGOUT} from '../constants/authUserConstant'
+import {SIGN_UP, LOGIN, LOGOUT, CREATE_ITEM} from '../constants/authUserConstant'
 import axios from '../lib/Axios/Axios'
 
 export const signupApi = (userInfo) => async (dispatch) => {
@@ -61,3 +61,17 @@ export const checkReloadToken = (decoded) => (dispatch) => {
   })
 }
 
+export const createItem = (userInfo) => async (dispatch) => {
+    console.log(userInfo)
+    try {
+      await axios.post('/api/users/sign-up', userInfo)
+      return Promise.resolve()
+    } catch (e) {
+      console.log(JSON.stringify(e))
+      if (e.message) {
+        return Promise.reject(e.message)
+      } else {
+        return Promise.reject(e.response.data.message)
+      }
+    }
+  }

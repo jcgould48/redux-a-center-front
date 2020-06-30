@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import validator from "validator";
 import ButtonGroup from "../../shared/ButtonGroup";
 import MultiInputGroup from "../../shared/MultiInputGroup";
-// import {createFriend} from "../../redux/actions/birthdayAction"
-// import {CREATE_FRIEND} from "../../redux/constants/birthdayConstant"
+import {createItem} from "../../redux/actions/itemActions"
+import {CREATE_ITEM} from "../../redux/constants/itemConstant"
 import { successToast, failureToast } from "../../Toastify/Toast";
 import "./CreateItem.css";
 
@@ -55,6 +55,15 @@ export class CreateItem extends Component {
             noError: null,
           },
         },
+        availability: {
+            name: "availability",
+            type: "boolean",
+            value: "",
+            error: {
+              message: "",
+              noError: null,
+            },
+          },
         dateInput: {
           name: "dateInput",
           type: "dateInput",
@@ -186,15 +195,16 @@ export class CreateItem extends Component {
         itemName,
         rentAmount,
         description,
-        id
+        availability,
       } = this.state.formSetting;
       let itemObj = {
         itemName: itemName.value,
         rentAmount: rentAmount.value,
         date: dateInput.startDate,
         description: description.value,
+        availability : true
       };
-      // console.log("userobj", userObj)
+      // console.log("itemObj", userObj)
       
       await this.props.createItem(itemObj)
       successToast("Rental Item Created!")
@@ -213,10 +223,6 @@ export class CreateItem extends Component {
         canSubmit: false,
       });
       
-      // this.props.dispatch({
-      //   type: CREATE_FRIEND,
-      //   payload: success,
-      // });
 
     } catch (e) {
       failureToast(e);
@@ -231,8 +237,8 @@ export class CreateItem extends Component {
       });
     }
     return (
-      <div className="birthday">
-        <div className="birthday--input-container">
+      <div className="item">
+        <div className="item--input-container">
           <form className="signup-form" onSubmit={this.handleItemSubmit}>
             {inputArray.map((element) => {
               const {
@@ -274,4 +280,4 @@ export class CreateItem extends Component {
   }
 }
 
-export default connect(null, {createFriend})(CreateBirthday);
+export default connect(null, {createItem})(CreateItem);

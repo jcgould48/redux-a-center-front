@@ -1,8 +1,8 @@
-.birthday {
+.item {
     max-width: 786px;
     margin: 0 auto;
   }
-  .birthday--input-container {
+  .item--input-container {
     text-align: center;
     margin-top: 8rem;
   }
@@ -13,7 +13,7 @@
     border-width: 0 0 2px;
     outline: 0;
   }
-  .birthday--input-date {
+  .item--input-date {
     width: 393px;
     font-size: 15px;
     border-width: 0 0 2px;
