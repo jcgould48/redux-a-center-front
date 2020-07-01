@@ -6,11 +6,14 @@ export default class Landing extends Component {
         items: [],
     };
     
+    // componentDidMount(){
+    //     Axios.get('http://localhost:3001/api/items/')
+    // }
     render() {
         return (
             <div>
                 <h1>Welcome to Redux a Center</h1>
-                <Carousel>
+                <Carousel>  
                     <Carousel.Item>
                     <img
                         className="d-block w-100"
