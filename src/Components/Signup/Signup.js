@@ -56,7 +56,7 @@ export class Signup extends Component {
     };
     componentDidMount(){
         if(checkToken()) {
-            // this.props.history.push('/home')
+            this.props.history.push('/')
         }
     };
     checkInputValidation = (errorState, inputName, inputValue) => {

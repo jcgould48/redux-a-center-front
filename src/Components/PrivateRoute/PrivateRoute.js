@@ -1,6 +1,6 @@
 import React from 'react'
 import {Route, Redirect} from 'react-router-dom'
-import {isAuthenticated } from '../Helpers/AuthHelpers'
+import {checkToken } from './CheckToken'
 
 
 function PrivateRoute({ component: Component, ...rest }) {
@@ -8,7 +8,7 @@ function PrivateRoute({ component: Component, ...rest }) {
         <Route
             {...rest}
             render={(props =>
-                isAuthenticated() ? (
+                checkToken() ? (
                     <Component {...props} />
                 ) : (
                     <Redirect to='login' />

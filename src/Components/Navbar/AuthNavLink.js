@@ -42,11 +42,11 @@ export default class AuthNavLink extends Component {
                 </li>
                 <li>
                     <NavLink
-                        to='create-item'
+                        to='/create-item'
                         className='navbar'
                         activeStyle={{fontWeight: 'bold'}}
                         activeClassName='selected'
-                        onClick={() => this.props.createItem()}
+                        // onClick={() => this.props.createItem()}
                     >
                         Create Rental
                     </NavLink>

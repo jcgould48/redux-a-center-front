@@ -3,8 +3,11 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import Spinner from './Components/Spinner/Spinner'
 import MainRouter from './MainRouter'
 import {Provider } from 'react-redux'
+import checkTokenAuth from "./Components/redux/lib/helpers/checkTokenAuth";
 import store from './Components/redux/store/store'
-import './App.css';
+// import './App.css';
+
+checkTokenAuth(store);
 
 function App() {
   return (

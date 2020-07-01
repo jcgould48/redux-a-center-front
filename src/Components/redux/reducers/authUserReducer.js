@@ -1,5 +1,11 @@
 import { SIGN_UP, LOGIN, LOGOUT } from '../constants/authUserConstant';
 
+import {
+    AUTH_USER_LOGGED_IN_SUCCESSFUL,
+    // AUTH_USER_LOGOUT,
+  } from "../actionTypes/authUserActionType";
+  
+
 const initialState = {
     isAuthenticated: false,
     user: null,
@@ -10,15 +16,12 @@ export default function (state = initialState, action) {
         return {
             ...state,
         };
-        case LOGIN:
-        console.log(action.payload);
-        return {
-            ...state,
-            isAuthenticated: true,
-            user:{
-            username: action.payload.username,
-            },
-        };
+        case AUTH_USER_LOGGED_IN_SUCCESSFUL:
+            return {
+              isAuthenticated: true,
+              user: { username: action.payload.username },
+            };
+
         case LOGOUT:
             return {
             ...state,
