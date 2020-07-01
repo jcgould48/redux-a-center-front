@@ -3,7 +3,7 @@ import validator from 'validator'
 import InputGroup from '../SharedGroup/InputGroup'
 import ButtonGroup from '../SharedGroup/ButtonGroup'
 import {successToast, failureToast} from '../Toastify/Toast'
-import {login} from '../redux/actions/authUserActions'
+import {login} from '../../redux/actions/authUserActions'
 import {connect} from 'react-redux'
 import {checkToken} from '../PrivateRoute/CheckToken'
 

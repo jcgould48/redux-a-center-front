@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import validator from "validator";
 import ButtonGroup from "../../SharedGroup/ButtonGroup";
 import MultiInputGroup from "../../SharedGroup/MultiInputGroup";
-import {createItem} from "../../redux/actions/itemActions"
-import {CREATE_ITEM} from "../../redux/constants/itemConstant"
+import {createItem} from "../../../redux/actions/itemActions"
+import {CREATE_ITEM} from "../../../redux/constants/itemConstant"
 import { successToast, failureToast } from "../../Toastify/Toast";
 import "./CreateItem.css";
 
@@ -53,15 +53,15 @@ export class CreateItem extends Component {
             noError: null,
           },
         },
-        availability: {
-            name: "availability",
-            type: "boolean",
-            value: "",
-            error: {
-              message: "",
-              noError: null,
-            },
-          },
+        // availability: {
+        //     name: "availability",
+        //     type: "boolean",
+        //     value: "",
+        //     error: {
+        //       message: "",
+        //       noError: null,
+        //     },
+        //   },
         dateInput: {
           name: "dateInput",
           type: "dateInput",
@@ -73,15 +73,15 @@ export class CreateItem extends Component {
         },
       },
       validate: {
-        itemName: {
+        itemNameError: {
           noError: null,
           message: "",
         },
-        rentAmount: {
+        rentAmountError: {
           noError: null,
           message: "",
         },
-        description: {
+        descriptionError: {
           noError: null,
           message: "",
         },
@@ -118,7 +118,7 @@ export class CreateItem extends Component {
         let validatedDescription;
         validatedDescription = validator.isEmpty(inputValue);
         if (!validatedDescription) {
-          errorState.descriptionError.noError = false;
+          errorState.descriptionError.noError = true;
           errorState.descriptionError.message = "Cannot be empty";
           return errorState;
         } else {
@@ -193,14 +193,14 @@ export class CreateItem extends Component {
         itemName,
         rentAmount,
         description,
-        availability,
+        // availability,
       } = this.state.formSetting;
       let itemObj = {
         itemName: itemName.value,
         rentAmount: rentAmount.value,
         date: dateInput.startDate,
         description: description.value,
-        availability : true
+        // availability : true
       };
       // console.log("itemObj", userObj)
       

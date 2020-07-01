@@ -29,7 +29,7 @@ const MultiInputGroup = (props) => {
         />
       );
       break;
-    case "phone":
+    case "number":
       multiInputField = (
         <InputGroup
           name={props.name}
@@ -44,7 +44,7 @@ const MultiInputGroup = (props) => {
     case "dateInput":
       multiInputField = (
         <>
-          <label style={{ color: "green" }}>Enter Friend's Birthday</label>
+          <label style={{ color: "green" }}>Today's Date</label>
           <br />
           <DatePicker
             className="birthday--input-date"

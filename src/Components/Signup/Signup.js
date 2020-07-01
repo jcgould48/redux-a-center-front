@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {checkToken} from '../PrivateRoute/CheckToken'
 import { successToast, failureToast } from '../Toastify/Toast';
-import { signupApi } from '../redux/actions/authUserActions'
+import { signupApi } from '../../redux/actions/authUserActions'
 import validator from 'validator'
 import InputGroup from '../SharedGroup/InputGroup';
 import ButtonGroup from '../SharedGroup/ButtonGroup'
