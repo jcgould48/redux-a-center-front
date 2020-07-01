@@ -123,7 +123,7 @@ onSubmit = async (event, dispatch) => {
     event.preventDefault();
     const { email, password } = this.state.formConfig;
     try {
-
+        console.log("MAybe??", email.value)
         await this.props.login({
 
             email:email.value,
