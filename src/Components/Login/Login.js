@@ -43,7 +43,11 @@ export class Login extends Component {
       };
       componentDidMount() {
         if (checkToken()) {
+<<<<<<< HEAD
           // this.props.history.push("/all-items");
+=======
+        //   this.props.history.push("/home");
+>>>>>>> df6cb0d6dfae4ff78264574f3be251c52b25f5b4
         }
       }
     
@@ -137,7 +141,7 @@ onSubmit = async (event, dispatch) => {
       inputForm["password"].value = "";
 
       successToast("Welcome Back!");
-      this.props.history.push("/all-items")
+    //   this.props.history.push("/home")
 
     } catch (e) {
       failureToast(e);

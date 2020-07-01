@@ -15,7 +15,7 @@ export default class AuthNavLink extends Component {
                         activeClassName='selected'
                         
                     >
-                        Create Rental
+                        Main Paige
                     </NavLink>
                 </li>
                 <li>
@@ -37,12 +37,12 @@ export default class AuthNavLink extends Component {
                         onClick={() => this.props.logout()}
                     >
                         Log out
-                        {this.props.username}
+                       
                     </NavLink>
                 </li>
                 <li>
                     <NavLink
-                        to='create-items'
+                        to='create-item'
                         className='navbar'
                         activeStyle={{fontWeight: 'bold'}}
                         activeClassName='selected'
