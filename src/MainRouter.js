@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Route, Switch} from 'react-router-dom'
 import Toastify from "./Components/Toastify/Toastify";
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute'
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Signup = React.lazy(() => import("./Components/Signup/Signup"));
 const Navbar = React.lazy(() => import("./Components/Navbar/Navbar"));
