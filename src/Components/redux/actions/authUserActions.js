@@ -1,12 +1,18 @@
+import {
+    AUTH_USER_LOGGED_IN_SUCCESSFUL,
+    AUTH_USER_LOGOUT,
+  } from "../actionTypes/authUserActionType";
+  
+import { History } from "../lib/helpers/History/History";
 import setAuthToken from '../lib/Axios/setAuthToken'
 import jwt_decode from 'jwt-decode'
 import {SIGN_UP, LOGIN, LOGOUT} from '../constants/authUserConstant'
-import axios from '../lib/Axios/Axios'
+import Axios from '../lib/Axios/Axios'
 
 export const signupApi = (userInfo) => async (dispatch) => {
   console.log(userInfo)
   try {
-    await axios.post('/api/users/sign-up', userInfo)
+    await Axios.post('/api/users/sign-up', userInfo)
     return Promise.resolve()
   } catch (e) {
     console.log(JSON.stringify(e))
@@ -19,23 +25,18 @@ export const signupApi = (userInfo) => async (dispatch) => {
 }
 
 export const login = (userInfo) => async (dispatch) => {
-  try {
-    let success = await axios.post(
-      "/api/users/login",
-      userInfo
-    );
-    const { jwtToken } = success.data;
-    dispatch(setAuthSuccessUser(jwtToken));
-    return Promise.resolve();
-  } catch (e) {
-    if (e.response && e.response.status === 500) {
-      return Promise.reject(e.response.data.message);
+    try {
+      let success = await Axios.post("/api/users/login", userInfo);
+  
+      let { jwtToken, jwtRefreshToken } = success.data;
+  
+      dispatch(setAuthSuccessUser(jwtToken, jwtRefreshToken));
+  
+      return Promise.resolve();
+    } catch (e) {
+      return Promise.reject(e);
     }
-    if (e.message) {
-      return Promise.reject(e.message);
-    }
-  }
-};
+  };
 
 export const logout = () => (dispatch)=> {
   localStorage.removeItem('jwtToken')
@@ -44,34 +45,24 @@ export const logout = () => (dispatch)=> {
     type: LOGOUT
   })
 }
-export const setAuthSuccessUser = (jwtToken) => (dispatch) => {
-  setAuthToken(jwtToken);
-
-  localStorage.setItem("jwtToken", jwtToken);
-  let decoded = jwt_decode(jwtToken);
-  dispatch({
-    type: LOGIN,
-    payload: decoded
-  });
-};
+export const setAuthSuccessUser = (jwtToken, jwtRefreshToken) => (dispatch) => {
+    setAuthToken(jwtToken);
+    localStorage.setItem("jwtToken", jwtToken);
+    localStorage.setItem("jwt-refresh-Token", jwtRefreshToken);
+  
+    let decoded = jwt_decode(jwtToken);
+  
+    dispatch({
+      type: AUTH_USER_LOGGED_IN_SUCCESSFUL,
+      payload: decoded,
+    });
+  };
+  
 export const checkReloadToken = (decoded) => (dispatch) => {
   dispatch({
-    type:LOGIN,
+    type:AUTH_USER_LOGGED_IN_SUCCESSFUL,
     payload:decoded,
   })
 }
 
-export const createItem = (userInfo) => async (dispatch) => {
-    console.log(userInfo)
-    try {
-      await axios.post('/api/users/sign-up', userInfo)
-      return Promise.resolve()
-    } catch (e) {
-      console.log(JSON.stringify(e))
-      if (e.message) {
-        return Promise.reject(e.message)
-      } else {
-        return Promise.reject(e.response.data.message)
-      }
-    }
-  }
+
