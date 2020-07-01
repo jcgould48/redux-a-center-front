@@ -1,9 +1,8 @@
 import {
     AUTH_USER_LOGGED_IN_SUCCESSFUL,
     AUTH_USER_LOGOUT,
-  } from "../actionTypes/authUserActionType";
-  
-import { History } from "../lib/helpers/History/History";
+} from "../actionTypes/authUserActionType";
+import { history } from "../lib/Helpers/History/History";
 import setAuthToken from '../lib/Axios/setAuthToken'
 import jwt_decode from 'jwt-decode'
 import {SIGN_UP, LOGIN, LOGOUT} from '../constants/authUserConstant'

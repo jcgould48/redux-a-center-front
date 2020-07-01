@@ -43,19 +43,7 @@ export class Login extends Component {
       };
       componentDidMount() {
         if (checkToken()) {
-<<<<<<< HEAD
-        //   this.props.history.push("/home");
-=======
-<<<<<<< HEAD
           this.props.history.push("/");
-=======
-<<<<<<< HEAD
-          // this.props.history.push("/all-items");
-=======
-        //   this.props.history.push("/home");
->>>>>>> df6cb0d6dfae4ff78264574f3be251c52b25f5b4
->>>>>>> 63d95901bd83537ed6f03702dae1a24f3ea4c6cf
->>>>>>> ae5a9e7a95d5d5c87902eb1014b447ffd6b35de6
         }
       }
     
