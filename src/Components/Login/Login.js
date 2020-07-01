@@ -43,7 +43,7 @@ export class Login extends Component {
       };
       componentDidMount() {
         if (checkToken()) {
-          this.props.history.push("/all-items");
+          // this.props.history.push("/all-items");
         }
       }
     
