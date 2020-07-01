@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component }from 'react';
 import {BrowserRouter as Router} from 'react-router-dom'
 import Spinner from './Components/Spinner/Spinner'
 import MainRouter from './MainRouter'
@@ -9,7 +9,8 @@ import store from './Components/redux/store/store'
 
 checkTokenAuth(store);
 
-function App() {
+class App extends Component {
+  render() {
   return (
     <Provider store={store}>
       <Router>
@@ -19,6 +20,7 @@ function App() {
       </Router>
     </Provider>
   );
+  }
 }
 
 export default App;

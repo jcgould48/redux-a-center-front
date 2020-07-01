@@ -27,7 +27,7 @@ export const signupApi = (userInfo) => async (dispatch) => {
 export const login = (userInfo) => async (dispatch) => {
     try {
       let success = await Axios.post("/api/users/login", userInfo);
-  
+        console.log("AAAAA", success.data.jwtToken)
       let { jwtToken, jwtRefreshToken } = success.data;
   
       dispatch(setAuthSuccessUser(jwtToken, jwtRefreshToken));
@@ -57,7 +57,7 @@ export const setAuthSuccessUser = (jwtToken, jwtRefreshToken) => (dispatch) => {
       payload: decoded,
     });
   };
-  
+
 export const checkReloadToken = (decoded) => (dispatch) => {
   dispatch({
     type:AUTH_USER_LOGGED_IN_SUCCESSFUL,
