@@ -1,6 +1,8 @@
 import {combineReducers} from 'redux';
 import authUserReducer from './authUserReducer'
+import itemReducer from './itemReducer'
 
 export default  combineReducers({
-    authUser: authUserReducer
+    authUser: authUserReducer,
+    rentalItem: itemReducer
 })

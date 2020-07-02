@@ -1,4 +1,4 @@
-import { CREATE_ITEM } from "../constants/itemConstant";
+import { CREATE_ITEM, GET_ALL_ITEMS  } from "../constants/itemConstant";
 
 const initialState = {
   rentalItems: []
@@ -9,9 +9,12 @@ export default function (state = initialState, action) {
     case CREATE_ITEM:
     return {
         ...state,
-        rentalItems: [...state.items, action.payload],
+        rentalItems: [...state.rentalItems, action.payload],
     };
-    
+    case GET_ALL_ITEMS:
+      return {
+        rentalItems: [...action.payload],
+      };
     default:
       return state;
   }
