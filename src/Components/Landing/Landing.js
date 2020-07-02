@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 import Carousel from 'react-bootstrap/Carousel'
+import Axios from 'axios'
+import './Landing.css'
 
 export default class Landing extends Component {
     state = {
         items: [],
     };
     
-    // componentDidMount(){
-    //     Axios.get('http://localhost:3001/api/items/')
-    // }
+    componentDidMount(){
+        Axios.get('http://localhost:3001/api/items/getAllItems').then((response) => {
+            console.log('itemData', response.data);
+            this.setState({items: response.data})
+        })
+    }
     render() {
         return (
             <div>
@@ -17,18 +22,18 @@ export default class Landing extends Component {
                     <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="holder.js/800x400?text=First slide&bg=373940"
+                        src="/images/couch.jpg"
                         alt="First slide"
                     />
                         <Carousel.Caption>
-                            <h3>First slide in label</h3>
-                            <p> blah blah blah </p>
+                            <h3>Look at this beautiful couch</h3>
+                            <p> read the fine print </p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="holder.js/800x400?text=First slide&bg=373940"
+                        src="/images/tv.jpg"
                         alt="Second slide"
                     />
                         <Carousel.Caption>
@@ -39,7 +44,7 @@ export default class Landing extends Component {
                     <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="holder.js/800x400?text=First slide&bg=373940"
+                        src="/images/washer.jpg"
                         alt="Third slide"
                     />
                         <Carousel.Caption>
