@@ -4,7 +4,7 @@ import './Navbar.css'
 
 export default function UnAuthNavLinks () {
     return (
-        <ul>
+        <ul className="nav__ul">
             <li>
                 <NavLink
                     to='/sign-up'

@@ -6,8 +6,19 @@ import './Navbar.css'
 export default class AuthNavLink extends Component {
     render() {
         return (
-            <ul>
+            <ul className="nav__ul">
                 <li>
+                    <NavLink
+                        to='/user-profile'
+                        className='navbar'
+                        activeStyle={{ fontWeight: 'bold'}}
+                        activeClassName='selected'
+                    >
+                       Hello {this.props.username}
+                    </NavLink>
+                </li>
+                
+                <li className="left-link">
                     <NavLink
                         to='/home'
                         className='navbar'
@@ -18,14 +29,16 @@ export default class AuthNavLink extends Component {
                         Main Paige
                     </NavLink>
                 </li>
+                
                 <li>
                     <NavLink
-                        to='/user-profile'
+                        to='/create-item'
                         className='navbar'
-                        activeStyle={{ fontWeight: 'bold'}}
+                        activeStyle={{fontWeight: 'bold'}}
                         activeClassName='selected'
+                        // onClick={() => this.props.createItem()}
                     >
-                        {this.props.username}
+                        Create Rental
                     </NavLink>
                 </li>
                 <li>
@@ -40,17 +53,7 @@ export default class AuthNavLink extends Component {
                        
                     </NavLink>
                 </li>
-                <li>
-                    <NavLink
-                        to='/create-item'
-                        className='navbar'
-                        activeStyle={{fontWeight: 'bold'}}
-                        activeClassName='selected'
-                        // onClick={() => this.props.createItem()}
-                    >
-                        Create Rental
-                    </NavLink>
-                </li>
+               
             </ul>
         )
     }

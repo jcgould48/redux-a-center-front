@@ -11,7 +11,7 @@ export class Navbar extends Component {
         const { isAuthenticated, user} = this.props.authUser
         return (
             <header>
-                <NavLink
+                {/* <NavLink
                     to='/'
                     className='navbar-home'
                     activeStyle={{ fontWeight: 'bold'}}
@@ -19,7 +19,7 @@ export class Navbar extends Component {
                     exact
                 >   
                     Home
-                </NavLink>
+                </NavLink> */}
                 <nav>
                     {user && isAuthenticated ? (
                         <AuthNavLink
