@@ -1,2 +1,5 @@
 export const CREATE_ITEM= 'CREATE_ITEM'
 export const GET_ALL_ITEMS= 'GET_ALL_ITEMS'
+export const RENT_ITEM= 'RENT_ITEM'
+export const RETURN_ITEM= 'RETURN_ITEM'
+export const WAIT_LIST= 'WAIT_LIST'

@@ -193,16 +193,15 @@ export class CreateItem extends Component {
         itemName,
         rentAmount,
         description,
-        // availability,
       } = this.state.formSetting;
       let itemObj = {
         itemName: itemName.value,
         rentAmount: rentAmount.value,
         date: dateInput.startDate,
         description: description.value,
-        // availability : true
+        availability : true
       };
-      // console.log("itemObj", userObj)
+      console.log("itemObj", itemObj)
       
       await this.props.createItem(itemObj)
       successToast("Rental Item Created!")
