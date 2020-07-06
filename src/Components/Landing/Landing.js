@@ -48,8 +48,8 @@ export default class Landing extends Component {
                         alt="Third slide"
                     />
                         <Carousel.Caption>
-                            <h3>Third slide in label</h3>
-                            <p> blah blah blah </p>
+                            <h3>washing machine</h3>
+                            <p> read the fine print</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
