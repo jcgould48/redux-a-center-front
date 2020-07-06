@@ -14,7 +14,7 @@ export default class AuthNavLink extends Component {
                         activeStyle={{ fontWeight: 'bold'}}
                         activeClassName='selected'
                     >
-                       Hello {this.props.username}
+                        Hello {this.props.username}
                     </NavLink>
                 </li>
                 
