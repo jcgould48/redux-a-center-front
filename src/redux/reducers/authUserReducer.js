@@ -23,6 +23,7 @@ export default function (state = initialState, action) {
                     username: action.payload.username,
                     email: action.payload.email
                 },
+
             };
 
         case LOGOUT:

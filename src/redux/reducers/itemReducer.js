@@ -1,4 +1,4 @@
-import { CREATE_ITEM, GET_ALL_ITEMS, RENT_ITEM, RETURN_ITEM, WAIT_LIST } from "../constants/itemConstant";
+import { CREATE_ITEM, GET_ALL_ITEMS, RENT_ITEM, RETURN_ITEM, WAIT_LIST, PROFILE_ITEMS } from "../constants/itemConstant";
 
 const initialState = {
   availability: true,
@@ -27,6 +27,11 @@ export default function (state = initialState, action) {
         rentalItems: [action.payload],
       };
     case WAIT_LIST:
+      return {
+        ...state,
+        rentalItems: [action.payload],
+      };
+    case PROFILE_ITEMS:
       return {
         ...state,
         rentalItems: [action.payload],
