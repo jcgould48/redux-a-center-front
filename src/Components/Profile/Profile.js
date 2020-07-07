@@ -82,7 +82,7 @@ export class Profile extends Component {
                         <h5 className="card-title">{availability}</h5>
                         <p className="card-text">{rentAmount}</p>
                         <p className="card-text">{description}</p>
-                        {availability === true ? (
+                        {availability === false ? (
                           <ButtonGroup
                             buttonStyle="form-button"
                             className="btn btn-primary"
