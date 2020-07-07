@@ -17,6 +17,7 @@ export default function (state = initialState, action) {
     };
     case GET_ALL_ITEMS:
       return {
+        ...state,
         rentalItems: [...action.payload],
       };
     case RENT_ITEM:
@@ -35,12 +36,16 @@ export default function (state = initialState, action) {
         rentalItems: [action.payload],
       };
     case PROFILE_ITEMS:
+      // console.log("payload",action.payload.waitListed)
+      // console.log("payload",action.payload.rented)
+      console.log("payload",action.payload.created)
+      console.log("STATE",state)
       return {
         ...state,
-        rentalItems: [action.payload],
-        createdItems: [...state.createdItems, action.payload],
-        rentedItems: [],
-        // waitListItems: [],
+        rentalItems: [...state.rentalItems],
+        createdItems: [...state.createdItems, ...action.payload.created],
+        rentedItems: [...state.rentedItems, ...action.payload.rented],
+        waitListItems: [...state.waitListItems, ...action.payload.waitListed],
       };
     default:
       return state;

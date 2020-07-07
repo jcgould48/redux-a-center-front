@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import GetAllItems from "../RentalItems/GetAllItems/GetAllItems";
 import {
   getAllItems,
   rentItem,
   returnItem,
   waitListItem,
+  getAllProfileItems
 } from "../../redux/actions/itemActions";
 import { successToast, failureToast } from "../Toastify/Toast";
 import ButtonGroup from "../SharedGroup/ButtonGroup";
@@ -54,16 +54,16 @@ export class Profile extends Component {
 
   render() {
     const { user } = this.props.authUser;
-    console.log("REDUCER", this.props.rentalItem)
-    console.log("REDUCER2", this.props.rentalItem.createdItems)
+    console.log("REDUCER", this.props)
+    // console.log("REDUCER2", this.props.rentalItem.cre)
     // console.log("test123", this.props.authUser);
     return (
-      <>
-        <h1>ITEMS</h1>
+        <>
+        <h1>Rented ITEMS</h1>
         <hr />
         <div className="table-container">
-          {this.props.rentalItem.rentalItems.length > 0
-            ? this.props.rentalItem.rentalItems.map((itemCard) => {
+          {this.props.rentalItem.rentedItems.length > 0
+            ? this.props.rentalItem.rentedItems.map((itemCard) => {
                 const {
                   itemName,
                   rentAmount,
@@ -71,46 +71,46 @@ export class Profile extends Component {
                   availability,
                 } = itemCard;
                 console.log("ITEMCARD", itemCard);
-                {
-                  return availability == false ? (
-                    <div className="card">
-                      <img
-                        className="card-img-top"
-                        src="..."
-                        alt="Card image cap"
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title">{itemName}</h5>
-                        <h5 className="card-title">{availability}</h5>
-                        <p className="card-text">{rentAmount}</p>
-                        <p className="card-text">{description}</p>
-                        {availability === false ? (
-                          <ButtonGroup
-                            buttonStyle="form-button"
-                            className="btn btn-primary"
-                            title="Rent Now!"
-                            onClick={() => this.handleRentNow(itemCard)}
-                          />
-                        ) : (
-                          <ButtonGroup
-                            buttonStyle="form-button"
-                            className="btn btn-primary"
-                            title="Waiting List"
-                            onClick={() => this.handleWaitList(itemCard)}
-                          />
-                        )}
-                        <ButtonGroup
-                          buttonStyle="form-button"
-                          className="btn btn-primary"
-                          title="Return"
-                          onClick={() => this.handleReturnItem(itemCard)}
-                        />
-                      </div>
-                    </div>
-                  ) : null;
+                return (
+        <div className="card" >
+            <img className="card-img-top" src="..." alt="Card image cap"/>
+            <div className="card-body">
+                <h5 className="card-title">{itemName}</h5>
+                <h5 className="card-title">{availability}</h5>
+                <p className="card-text">{rentAmount}</p>
+                <p className="card-text">{description}</p>
+                {availability === true ?
+                <ButtonGroup
+                buttonStyle="form-button"
+                className="btn btn-primary"
+                title="Rent Now!"
+                onClick={() => this.handleRentNow(itemCard)}
+              />
+              :
+              <ButtonGroup
+                buttonStyle="form-button"
+                className="btn btn-primary"
+                title="Waiting List"
+                onClick={() => this.handleWaitList(itemCard)}
+              />
                 }
-              })
-            : null}
+              <ButtonGroup
+              buttonStyle="form-button"
+              className="btn btn-primary"
+              title="Return"
+              onClick={() => this.handleReturnItem(itemCard)}
+            />
+              <ButtonGroup
+              buttonStyle="form-button"
+              className="btn btn-primary"
+              title="Profile"
+              onClick={() => this.handleProfile(itemCard)}
+            />
+            </div>
+            </div>
+                )
+        }):
+        null}
         </div>
       </>
     );
@@ -127,4 +127,5 @@ export default connect(mapStateToProps, {
   rentItem,
   returnItem,
   waitListItem,
+  getAllProfileItems
 })(Profile);

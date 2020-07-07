@@ -76,7 +76,8 @@ export const getAllProfileItems = (itemInfo) => async (dispatch) => {
     let success = await Axios.get("/api/items/all-profile-items", itemInfo)
     dispatch({
       type: PROFILE_ITEMS,
-      payload: success.data,
+      payload: success.data
+      // success.data.created
     });
   } catch (e) {
     console.log("ERROR", e)
