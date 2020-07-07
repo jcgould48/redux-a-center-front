@@ -4,11 +4,12 @@ import { connect } from 'react-redux'
 
 export class Profile extends Component {
     render() {
+        {console.log("test123", this.props.authUser)}
         const { user} = this.props.authUser
         // console.log(authUser)
         return (
-            <div>
-                <h1>Hello {user}</h1>
+            <div><h1>TEST</h1>
+                <h1>Hello {user.username}</h1>
             </div>
         )
     }

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import DatePicker from "react-datepicker";
 
 import { parseISO } from "date-fns";
-import { getAllItems, rentItem, returnItem, waitListItem} from "../../../redux/actions/itemActions";
+import { getAllItems, rentItem, returnItem, waitListItem, getAllProfileItems} from "../../../redux/actions/itemActions";
 import { successToast, failureToast } from "../../Toastify/Toast";
 import ButtonGroup from "../../SharedGroup/ButtonGroup"
 
@@ -50,6 +50,16 @@ class GetAllItems extends Component {
     handleWaitList = async (item) => {
         try {
           await this.props.waitListItem(item);
+        
+         successToast("You are on the wait list!")
+        
+        } catch (e) {
+            failureToast(e);
+          };
+        }
+    handleProfile = async (item) => {
+        try {
+          await this.props.getAllProfileItems(item);
         
          successToast("You are on the wait list!")
         
@@ -106,6 +116,12 @@ class GetAllItems extends Component {
               title="Return"
               onClick={() => this.handleReturnItem(itemCard)}
             /> 
+              <ButtonGroup
+              buttonStyle="form-button"
+              className="btn btn-primary"
+              title="Profile"
+              onClick={() => this.handleProfile(itemCard)}
+            /> 
             </div>
             </div>
                 )  
@@ -122,6 +138,6 @@ const mapStateToProps = (state) => ({
     authUser: state.authUser,
   });
   
-  export default connect(mapStateToProps, { getAllItems, rentItem, returnItem, waitListItem })(
+  export default connect(mapStateToProps, { getAllItems, rentItem, returnItem, waitListItem,getAllProfileItems })(
     GetAllItems
   );

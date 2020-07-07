@@ -19,7 +19,10 @@ export default function (state = initialState, action) {
         case AUTH_USER_LOGGED_IN_SUCCESSFUL:
             return {
               isAuthenticated: true,
-              user: { username: action.payload.username },
+              user: { 
+                    username: action.payload.username,
+                    email: action.payload.email,
+                     },
             };
 
         case LOGOUT:
