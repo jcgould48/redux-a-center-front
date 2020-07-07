@@ -3,16 +3,7 @@ import { connect } from "react-redux";
 import DatePicker from "react-datepicker";
 
 import { parseISO } from "date-fns";
-<<<<<<< HEAD
-import {
-  getAllItems,
-  rentItem,
-  returnItem,
-  waitListItem,
-} from "../../../redux/actions/itemActions";
-=======
 import { getAllItems, rentItem, returnItem, waitListItem, getAllProfileItems} from "../../../redux/actions/itemActions";
->>>>>>> profile
 import { successToast, failureToast } from "../../Toastify/Toast";
 import ButtonGroup from "../../SharedGroup/ButtonGroup";
 
@@ -38,16 +29,6 @@ class GetAllItems extends Component {
 
       await this.props.rentItem(item);
 
-<<<<<<< HEAD
-      successToast("Item reserved!");
-    } catch (e) {
-      failureToast(e);
-    }
-  };
-  handleReturnItem = async (item) => {
-    try {
-      await this.props.returnItem(item);
-=======
     handleWaitList = async (item) => {
         try {
           await this.props.waitListItem(item);
@@ -69,7 +50,6 @@ class GetAllItems extends Component {
           };
         }
       
->>>>>>> profile
 
       successToast("Item returned!");
     } catch (e) {
@@ -105,46 +85,6 @@ class GetAllItems extends Component {
                 } = itemCard;
                 console.log("ITEMCARD", itemCard);
                 return (
-<<<<<<< HEAD
-                  // null
-                  <div className="card">
-                    <img
-                      className="card-img-top"
-                      src="..."
-                      alt="Card image cap"
-                    />
-                    <div className="card-body">
-                      <h5 className="card-title">{itemName}</h5>
-                      <h5 className="card-title">{availability}</h5>
-                      <p className="card-text">{rentAmount}</p>
-                      <p className="card-text">{description}</p>
-                      {availability === true ? (
-                        <ButtonGroup
-                          buttonStyle="form-button"
-                          className="btn btn-primary"
-                          title="Rent Now!"
-                          onClick={() => this.handleRentNow(itemCard)}
-                        />
-                      ) : (
-                        <ButtonGroup
-                          buttonStyle="form-button"
-                          className="btn btn-primary"
-                          title="Waiting List"
-                          onClick={() => this.handleWaitList(itemCard)}
-                        />
-                      )}
-                      <ButtonGroup
-                        buttonStyle="form-button"
-                        className="btn btn-primary"
-                        title="Return"
-                        onClick={() => this.handleReturnItem(itemCard)}
-                      />
-                    </div>
-                  </div>
-                );
-              })
-            : null}
-=======
                     // null
         <div className="card" >
             <img className="card-img-top" src="..." alt="Card image cap"/>
@@ -185,7 +125,6 @@ class GetAllItems extends Component {
                 )  
         }):
         null}
->>>>>>> profile
         </div>
       </>
     );
@@ -193,18 +132,6 @@ class GetAllItems extends Component {
 }
 
 const mapStateToProps = (state) => ({
-<<<<<<< HEAD
-  rentalItem: state.rentalItem,
-  authUser: state.authUser,
-});
-
-export default connect(mapStateToProps, {
-  getAllItems,
-  rentItem,
-  returnItem,
-  waitListItem,
-})(GetAllItems);
-=======
     rentalItem: state.rentalItem,
     authUser: state.authUser,
   });
@@ -212,4 +139,3 @@ export default connect(mapStateToProps, {
   export default connect(mapStateToProps, { getAllItems, rentItem, returnItem, waitListItem,getAllProfileItems })(
     GetAllItems
   );
->>>>>>> profile
