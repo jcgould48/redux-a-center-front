@@ -88,7 +88,6 @@ class GetAllItems extends Component {
                 } = itemCard;
                 console.log("ITEMCARD", itemCard);
                 return (
-
         <div className="card" >
             <img className="card-img-top" src="..." alt="Card image cap"/>
             <div className="card-body">
@@ -128,7 +127,6 @@ class GetAllItems extends Component {
                 )  
         }):
         null}
-
         </div>
       </>
     );
@@ -136,7 +134,6 @@ class GetAllItems extends Component {
 }
 
 const mapStateToProps = (state) => ({
-
     rentalItem: state.rentalItem,
     authUser: state.authUser,
   });
@@ -144,4 +141,3 @@ const mapStateToProps = (state) => ({
   export default connect(mapStateToProps, { getAllItems, rentItem, returnItem, waitListItem,getAllProfileItems })(
     GetAllItems
   );
-
