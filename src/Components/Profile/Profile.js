@@ -11,7 +11,7 @@ import { successToast, failureToast } from "../Toastify/Toast";
 import ButtonGroup from "../SharedGroup/ButtonGroup";
 
 export class Profile extends Component {
-    
+
   async componentDidMount() {
     if (
       this.props.authUser.isAuthenticated &&
@@ -54,8 +54,9 @@ export class Profile extends Component {
 
   render() {
     const { user } = this.props.authUser;
-    // console.log(authUser)
-    console.log("test123", this.props.authUser);
+    console.log("REDUCER", this.props.rentalItem)
+    console.log("REDUCER2", this.props.rentalItem.createdItems)
+    // console.log("test123", this.props.authUser);
     return (
       <>
         <h1>ITEMS</h1>

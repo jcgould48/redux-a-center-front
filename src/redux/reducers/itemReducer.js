@@ -2,7 +2,10 @@ import { CREATE_ITEM, GET_ALL_ITEMS, RENT_ITEM, RETURN_ITEM, WAIT_LIST, PROFILE_
 
 const initialState = {
   availability: true,
-  rentalItems: []
+  rentalItems: [],
+  createdItems: [],
+  rentedItems: [],
+  waitListItems: [],
 };
 
 export default function (state = initialState, action) {
@@ -35,6 +38,9 @@ export default function (state = initialState, action) {
       return {
         ...state,
         rentalItems: [action.payload],
+        createdItems: [...state.createdItems, action.payload],
+        rentedItems: [],
+        // waitListItems: [],
       };
     default:
       return state;
