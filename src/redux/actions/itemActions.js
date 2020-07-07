@@ -1,6 +1,6 @@
 import Axios from "../lib/Axios/Axios";
 import setAuthToken from "../lib/Axios/setAuthToken"
-import {CREATE_ITEM, GET_ALL_ITEMS, RENT_ITEM, RETURN_ITEM, WAIT_LIST} from "../constants/itemConstant"
+import {CREATE_ITEM, GET_ALL_ITEMS, RENT_ITEM, RETURN_ITEM, WAIT_LIST, PROFILE_ITEMS} from "../constants/itemConstant"
 
 
 export const createItem = (itemInfo) => async (dispatch) => {
@@ -63,6 +63,19 @@ export const returnItem = (itemInfo) => async (dispatch) => {
     let success = await Axios.put("/api/items/return-item", itemInfo)
     dispatch({
       type: RETURN_ITEM,
+      payload: success.data,
+    });
+  } catch (e) {
+    console.log("ERROR", e)
+    return Promise.reject(e.response.data.message);
+  }
+};
+export const getAllProfileItems = (itemInfo) => async (dispatch) => {
+  try {
+    // console.log("Check?")
+    let success = await Axios.get("/api/items/all-profile-items", itemInfo)
+    dispatch({
+      type: PROFILE_ITEMS,
       payload: success.data,
     });
   } catch (e) {
