@@ -28,17 +28,27 @@ class GetAllItems extends Component {
       // console.log("####$$$", item)
 
       await this.props.rentItem(item);
+      successToast("Item Rented")
+        
+    } catch (e) {
+        failureToast(e);
+      };
+    }
 
-    handleWaitList = async (item) => {
-        try {
-          await this.props.waitListItem(item);
-        
-         successToast("You are on the wait list!")
-        
-        } catch (e) {
-            failureToast(e);
-          };
-        }
+    handleReturnItem = async (item) => {
+      try {
+        // console.log("####$$$", item)
+  
+        await this.props.rentItem(item);
+        successToast("Item Rented")
+          
+      } catch (e) {
+          failureToast(e);
+        };
+      }
+  
+
+
     handleProfile = async (item) => {
         try {
           await this.props.getAllProfileItems(item);
@@ -50,13 +60,6 @@ class GetAllItems extends Component {
           };
         }
       
-
-      successToast("Item returned!");
-    } catch (e) {
-      failureToast(e);
-    }
-  };
-
   handleWaitList = async (item) => {
     try {
       await this.props.waitListItem(item);
@@ -85,7 +88,6 @@ class GetAllItems extends Component {
                 } = itemCard;
                 console.log("ITEMCARD", itemCard);
                 return (
-                    // null
         <div className="card" >
             <img className="card-img-top" src="..." alt="Card image cap"/>
             <div className="card-body">
