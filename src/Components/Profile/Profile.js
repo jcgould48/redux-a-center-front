@@ -114,24 +114,6 @@ export class Profile extends Component {
                 <h5 className="card-title">{availability}</h5>
                 <p className="card-text">{rentAmount}</p>
                 <p className="card-text">{description}</p>
-<<<<<<< HEAD
-                {availability === true ?
-                    <ButtonGroup
-                        buttonStyle="form-button"
-                        className="btn btn-primary"
-                        title="Rent Now!"
-                        onClick={() => this.handleRentNow(itemCard)}
-                    />
-                    :
-                    <ButtonGroup
-                        buttonStyle="form-button"
-                        className="btn btn-primary"
-                        title="Waiting List"
-                        onClick={() => this.handleWaitList(itemCard)}
-                    />
-                }
-=======
->>>>>>> c953fff33b223598c75cfa4727c7bb5452e8534b
               <ButtonGroup
               buttonStyle="form-button"
               className="btn btn-primary"
