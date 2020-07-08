@@ -70,7 +70,6 @@ export class Profile extends Component {
                   itemName,
                   rentAmount,
                   description,
-                  availability,
                 } = itemCard;
                 // console.log("ITEMCARDProfile", itemCard);
                 return (
@@ -78,7 +77,7 @@ export class Profile extends Component {
             <img className="card-img-top" src="..." alt="Card image cap"/>
             <div className="card-body">
                 <h5 className="card-title">{itemName}</h5>
-                <h5 className="card-title">{availability}</h5>
+                
                 <p className="card-text">{rentAmount}</p>
                 <p className="card-text">{description}</p>
               <ButtonGroup
@@ -103,7 +102,6 @@ export class Profile extends Component {
                     itemName,
                     rentAmount,
                     description,
-                    availability,
                 } = itemCard;
                 // console.log("ITEMCARD2", itemCard);
                 return (
@@ -111,7 +109,7 @@ export class Profile extends Component {
             <img className="card-img-top" src="..." alt="Card image cap"/>
             <div className="card-body">
                 <h5 className="card-title">{itemName}</h5>
-                <h5 className="card-title">{availability}</h5>
+                
                 <p className="card-text">{rentAmount}</p>
                 <p className="card-text">{description}</p>
               <ButtonGroup
@@ -136,7 +134,6 @@ export class Profile extends Component {
                   itemName,
                   rentAmount,
                   description,
-                  availability,
                 } = itemCard;
                 // console.log("ITEMCARD3", itemCard);
                 return (
@@ -144,7 +141,7 @@ export class Profile extends Component {
             <img className="card-img-top" src="..." alt="Card image cap"/>
             <div className="card-body">
                 <h5 className="card-title">{itemName}</h5>
-                <h5 className="card-title">{availability}</h5>
+                
                 <p className="card-text">{rentAmount}</p>
                 <p className="card-text">{description}</p>
               <ButtonGroup
