@@ -1,4 +1,12 @@
-import { CREATE_ITEM, GET_ALL_ITEMS, RENT_ITEM, RETURN_ITEM, WAIT_LIST, PROFILE_ITEMS } from "../constants/itemConstant";
+import { 
+  CREATE_ITEM, 
+  GET_ALL_ITEMS, 
+  RENT_ITEM, RETURN_ITEM, 
+  WAIT_LIST, 
+  PROFILE_ITEMS, 
+  DELETE_ITEM, 
+  REMOVE_ITEM_WAIT_LIST 
+} from "../constants/itemConstant";
 
 const initialState = {
   availability: true,
@@ -46,6 +54,17 @@ export default function (state = initialState, action) {
         createdItems: [...state.createdItems, ...action.payload.created],
         rentedItems: [...state.rentedItems, ...action.payload.rented],
         waitListItems: [...state.waitListItems, ...action.payload.waitListed],
+      };
+    case DELETE_ITEM:
+      return {
+        ...state,
+        rentalItems: state.rentalItems.filter(
+             (item)=> item._id !== action.payload._id)
+      };
+    case REMOVE_ITEM_WAIT_LIST:
+      return {
+        ...state,
+        rentalItems: [action.payload],
       };
     default:
       return state;

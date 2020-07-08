@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
   getAllItems,
-  rentItem,
   returnItem,
-  waitListItem,
-  getAllProfileItems
+  getAllProfileItems,
+  deleteItem,
+  removeWaitList
 } from "../../redux/actions/itemActions";
 import { successToast, failureToast } from "../Toastify/Toast";
 import ButtonGroup from "../SharedGroup/ButtonGroup";
-
+import "./Profile.css"
 export class Profile extends Component {
 
   async componentDidMount() {
@@ -17,21 +17,10 @@ export class Profile extends Component {
       this.props.authUser.isAuthenticated &&
       this.props.authUser.user !== null
     ) {
-      await this.props.getAllItems();
+      await this.props.getAllProfileItems();
     }
   }
 
-  handleRentNow = async (item) => {
-    try {
-      // console.log("####$$$", item)
-
-      await this.props.rentItem(item);
-
-      successToast("Item reserved!");
-    } catch (e) {
-      failureToast(e);
-    }
-  };
   handleReturnItem = async (item) => {
     try {
       await this.props.returnItem(item);
@@ -41,25 +30,71 @@ export class Profile extends Component {
       failureToast(e);
     }
   };
-
-  handleWaitList = async (item) => {
+  handleRemoveWaitList = async (item) => {
     try {
-      await this.props.waitListItem(item);
+      await this.props.removeWaitList(item);
 
-      successToast("You are on the wait list!");
+      successToast("Item removed from wait list!");
     } catch (e) {
       failureToast(e);
     }
   };
 
+  handleDelete = async (item) => {
+    try {
+        console.log("Next step", item._id)
+        await this.props.deleteItem(item._id);
+
+      successToast("Item Deleted!");
+    } catch (e) {
+      failureToast(e);
+    }
+}
+
+
   render() {
-    const { user } = this.props.authUser;
-    console.log("REDUCER", this.props)
+    // const { user } = this.props.authUser;
+    // console.log("REDUCER", this.props)
     // console.log("REDUCER2", this.props.rentalItem.cre)
     // console.log("test123", this.props.authUser);
     return (
         <>
-        <h1>Rented ITEMS</h1>
+        {/* <h1>Hello {user} </h1> */}
+        <hr />
+        <h2>Created Items</h2>
+        <hr />
+        <div className="table-container">
+          {this.props.rentalItem.createdItems.length > 0
+            ? this.props.rentalItem.createdItems.map((itemCard) => {
+                const {
+                  itemName,
+                  rentAmount,
+                  description,
+                  availability,
+                } = itemCard;
+                // console.log("ITEMCARDProfile", itemCard);
+                return (
+        <div className="card" >
+            <img className="card-img-top" src="..." alt="Card image cap"/>
+            <div className="card-body">
+                <h5 className="card-title">{itemName}</h5>
+                <h5 className="card-title">{availability}</h5>
+                <p className="card-text">{rentAmount}</p>
+                <p className="card-text">{description}</p>
+              <ButtonGroup
+              buttonStyle="form-button"
+              className="btn btn-primary"
+              title="Delete Item"
+              onClick={() => this.handleDelete(itemCard)}
+            />
+            </div>
+            </div>
+                )
+        }):
+        null}
+        </div>
+        <hr />
+        <h1>Rented Items</h1>
         <hr />
         <div className="table-container">
             {this.props.rentalItem.rentedItems.length > 0
@@ -70,7 +105,7 @@ export class Profile extends Component {
                     description,
                     availability,
                 } = itemCard;
-                console.log("ITEMCARD", itemCard);
+                // console.log("ITEMCARD2", itemCard);
                 return (
         <div className="card" >
             <img className="card-img-top" src="..." alt="Card image cap"/>
@@ -79,6 +114,7 @@ export class Profile extends Component {
                 <h5 className="card-title">{availability}</h5>
                 <p className="card-text">{rentAmount}</p>
                 <p className="card-text">{description}</p>
+<<<<<<< HEAD
                 {availability === true ?
                     <ButtonGroup
                         buttonStyle="form-button"
@@ -94,17 +130,46 @@ export class Profile extends Component {
                         onClick={() => this.handleWaitList(itemCard)}
                     />
                 }
+=======
+>>>>>>> c953fff33b223598c75cfa4727c7bb5452e8534b
               <ButtonGroup
               buttonStyle="form-button"
               className="btn btn-primary"
               title="Return"
               onClick={() => this.handleReturnItem(itemCard)}
             />
+            </div>
+            </div>
+                )
+        }):
+        null}
+        </div>
+        <hr />
+        <h1>Wait Listed Items</h1>
+        <hr />
+        <div className="table-container">
+          {this.props.rentalItem.waitListItems.length > 0
+            ? this.props.rentalItem.waitListItems.map((itemCard) => {
+                const {
+                  itemName,
+                  rentAmount,
+                  description,
+                  availability,
+                } = itemCard;
+                // console.log("ITEMCARD3", itemCard);
+                return (
+        <div className="card" >
+            <img className="card-img-top" src="..." alt="Card image cap"/>
+            <div className="card-body">
+                <h5 className="card-title">{itemName}</h5>
+                <h5 className="card-title">{availability}</h5>
+                <p className="card-text">{rentAmount}</p>
+                <p className="card-text">{description}</p>
               <ButtonGroup
               buttonStyle="form-button"
               className="btn btn-primary"
-              title="Profile"
-              onClick={() => this.handleProfile(itemCard)}
+              title="Remove"
+              onClick={() => this.handleRemoveWaitList(itemCard)}
             />
             </div>
             </div>
@@ -124,8 +189,8 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   getAllItems,
-  rentItem,
   returnItem,
-  waitListItem,
-  getAllProfileItems
+  removeWaitList,
+  getAllProfileItems,
+  deleteItem
 })(Profile);

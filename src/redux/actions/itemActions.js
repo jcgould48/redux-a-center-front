@@ -1,6 +1,6 @@
 import Axios from "../lib/Axios/Axios";
 import setAuthToken from "../lib/Axios/setAuthToken"
-import {CREATE_ITEM, GET_ALL_ITEMS, RENT_ITEM, RETURN_ITEM, WAIT_LIST, PROFILE_ITEMS} from "../constants/itemConstant"
+import {CREATE_ITEM, GET_ALL_ITEMS, RENT_ITEM, RETURN_ITEM, WAIT_LIST, PROFILE_ITEMS, DELETE_ITEM,REMOVE_ITEM_WAIT_LIST} from "../constants/itemConstant"
 
 
 export const createItem = (itemInfo) => async (dispatch) => {
@@ -70,6 +70,18 @@ export const returnItem = (itemInfo) => async (dispatch) => {
     return Promise.reject(e.response.data.message);
   }
 };
+export const removeWaitList = (itemInfo) => async (dispatch) => {
+  try {
+    let success = await Axios.put("/api/items/remove-wait-list", itemInfo)
+    dispatch({
+      type: REMOVE_ITEM_WAIT_LIST,
+      payload: success.data,
+    });
+  } catch (e) {
+    console.log("ERROR", e)
+    return Promise.reject(e.response.data.message);
+  }
+};
 export const getAllProfileItems = (itemInfo) => async (dispatch) => {
   try {
     // console.log("Check?")
@@ -77,7 +89,18 @@ export const getAllProfileItems = (itemInfo) => async (dispatch) => {
     dispatch({
       type: PROFILE_ITEMS,
       payload: success.data
-      // success.data.created
+    });
+  } catch (e) {
+    console.log("ERROR", e)
+    return Promise.reject(e.response.data.message);
+  }
+};
+export const deleteItem = (id) => async (dispatch) => {
+  try {
+    let success = await Axios.delete(`/api/items/delete-item/${id}`)
+    dispatch({
+      type: DELETE_ITEM,
+      payload: success.data
     });
   } catch (e) {
     console.log("ERROR", e)
