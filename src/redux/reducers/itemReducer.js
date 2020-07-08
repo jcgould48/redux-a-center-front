@@ -31,17 +31,22 @@ export default function (state = initialState, action) {
     case RENT_ITEM:
       return {
         ...state,
+        
         rentalItems: [action.payload],
+        rentedItems: [...state.rentedItems, ...action.payload.rented],
       };
     case RETURN_ITEM:
       return {
         ...state,
         rentalItems: [action.payload],
+        rentedItems: state.rentedItems.filter(
+          (item)=> item._id !== action.payload._id)
       };
     case WAIT_LIST:
       return {
         ...state,
         rentalItems: [action.payload],
+        waitListItems: [...state.waitListItems, ...action.payload.waitListed],
       };
     case PROFILE_ITEMS:
       // console.log("payload",action.payload.waitListed)
@@ -50,7 +55,7 @@ export default function (state = initialState, action) {
       console.log("STATE",state)
       return {
         ...state,
-        rentalItems: [...state.rentalItems],
+        // rentalItems: [...state.rentalItems],
         createdItems: [...state.createdItems, ...action.payload.created],
         rentedItems: [...state.rentedItems, ...action.payload.rented],
         waitListItems: [...state.waitListItems, ...action.payload.waitListed],
@@ -58,13 +63,15 @@ export default function (state = initialState, action) {
     case DELETE_ITEM:
       return {
         ...state,
-        rentalItems: state.rentalItems.filter(
+        createdItems: state.createdItems.filter(
              (item)=> item._id !== action.payload._id)
       };
     case REMOVE_ITEM_WAIT_LIST:
       return {
         ...state,
         rentalItems: [action.payload],
+        waitListItems: state.waitListItems.filter(
+          (item)=> item._id !== action.payload._id)
       };
     default:
       return state;

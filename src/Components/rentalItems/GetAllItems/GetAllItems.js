@@ -23,13 +23,11 @@ class GetAllItems extends Component {
     }
   }
   handleRentNow = async (item) => {
-    try {
-      if (this.state.availability) {
-        this.setState({
-          ...this.state,
-          rentedItems: item
-        })
-      }
+    try{
+      
+      // this.setState({
+      //   availability: false
+      // })
       // console.log("####$$$", item)
       await this.props.rentItem(item);
       successToast("Item Rented")
@@ -37,23 +35,8 @@ class GetAllItems extends Component {
         failureToast(e);
       };
     }
-    handleReturnItem = async (item) => {
-      try {
-        // console.log("####$$$", item)
-        await this.props.rentItem(item);
-        successToast("Item Rented")
-      } catch (e) {
-          failureToast(e);
-        };
-      }
-    handleProfile = async (item) => {
-        try {
-          await this.props.getAllProfileItems(item);
-          successToast("You are on the wait list!")
-        } catch (e) {
-            failureToast(e);
-          };
-        }
+
+   
   handleWaitList = async (item) => {
     try {
       await this.props.waitListItem(item);
@@ -84,7 +67,6 @@ class GetAllItems extends Component {
             <img className="card-img-top" src="..." alt="Card image cap"/>
             <div className="card-body">
                 <h5 className="card-title">{itemName}</h5>
-                <h5 className="card-title">{availability}</h5>
                 <p className="card-text">{rentAmount}</p>
                 <p className="card-text">{description}</p>
                 {availability === true ?
@@ -102,18 +84,6 @@ class GetAllItems extends Component {
                 onClick={() => this.handleWaitList(itemCard)}
               />
                 }
-              <ButtonGroup
-              buttonStyle="form-button"
-              className="btn btn-primary"
-              title="Return"
-              onClick={() => this.handleReturnItem(itemCard)}
-            />
-              {/* <ButtonGroup
-              buttonStyle="form-button"
-              className="btn btn-primary"
-              title="Profile"
-              onClick={() => this.handleProfile(itemCard)}
-            /> */}
             </div>
             </div>
                 )
