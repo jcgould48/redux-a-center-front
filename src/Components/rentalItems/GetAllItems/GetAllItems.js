@@ -4,12 +4,16 @@ import DatePicker from "react-datepicker";
 import { parseISO } from "date-fns";
 import { getAllItems, rentItem, returnItem, waitListItem, getAllProfileItems} from "../../../redux/actions/itemActions";
 import { successToast, failureToast } from "../../Toastify/Toast";
+import { availability, rentedItems } from '../../../redux/reducers/itemReducer'
 import ButtonGroup from "../../SharedGroup/ButtonGroup";
 import "./GetAllItems.css";
+
+
+
 class GetAllItems extends Component {
-  // state = {
-  //     availability: this.props.availability,
-  //   };
+  state = {
+      availability: null,
+    };
   async componentDidMount() {
     if (
       this.props.authUser.isAuthenticated &&
@@ -20,6 +24,12 @@ class GetAllItems extends Component {
   }
   handleRentNow = async (item) => {
     try {
+      if (this.state.availability) {
+        this.setState({
+          ...this.state,
+          rentedItems: item
+        })
+      }
       // console.log("####$$$", item)
       await this.props.rentItem(item);
       successToast("Item Rented")
@@ -39,7 +49,7 @@ class GetAllItems extends Component {
     handleProfile = async (item) => {
         try {
           await this.props.getAllProfileItems(item);
-         successToast("You are on the wait list!")
+          successToast("You are on the wait list!")
         } catch (e) {
             failureToast(e);
           };
@@ -98,12 +108,12 @@ class GetAllItems extends Component {
               title="Return"
               onClick={() => this.handleReturnItem(itemCard)}
             />
-              <ButtonGroup
+              {/* <ButtonGroup
               buttonStyle="form-button"
               className="btn btn-primary"
               title="Profile"
               onClick={() => this.handleProfile(itemCard)}
-            />
+            /> */}
             </div>
             </div>
                 )

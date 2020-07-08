@@ -62,13 +62,13 @@ export class Profile extends Component {
         <h1>Rented ITEMS</h1>
         <hr />
         <div className="table-container">
-          {this.props.rentalItem.rentedItems.length > 0
+            {this.props.rentalItem.rentedItems.length > 0
             ? this.props.rentalItem.rentedItems.map((itemCard) => {
                 const {
-                  itemName,
-                  rentAmount,
-                  description,
-                  availability,
+                    itemName,
+                    rentAmount,
+                    description,
+                    availability,
                 } = itemCard;
                 console.log("ITEMCARD", itemCard);
                 return (
@@ -80,19 +80,19 @@ export class Profile extends Component {
                 <p className="card-text">{rentAmount}</p>
                 <p className="card-text">{description}</p>
                 {availability === true ?
-                <ButtonGroup
-                buttonStyle="form-button"
-                className="btn btn-primary"
-                title="Rent Now!"
-                onClick={() => this.handleRentNow(itemCard)}
-              />
-              :
-              <ButtonGroup
-                buttonStyle="form-button"
-                className="btn btn-primary"
-                title="Waiting List"
-                onClick={() => this.handleWaitList(itemCard)}
-              />
+                    <ButtonGroup
+                        buttonStyle="form-button"
+                        className="btn btn-primary"
+                        title="Rent Now!"
+                        onClick={() => this.handleRentNow(itemCard)}
+                    />
+                    :
+                    <ButtonGroup
+                        buttonStyle="form-button"
+                        className="btn btn-primary"
+                        title="Waiting List"
+                        onClick={() => this.handleWaitList(itemCard)}
+                    />
                 }
               <ButtonGroup
               buttonStyle="form-button"
