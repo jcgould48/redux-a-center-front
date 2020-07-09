@@ -1,6 +1,18 @@
 import Axios from "../lib/Axios/Axios";
 import setAuthToken from "../lib/Axios/setAuthToken"
-import {CREATE_ITEM, GET_ALL_ITEMS, RENT_ITEM, RETURN_ITEM, WAIT_LIST, PROFILE_ITEMS, DELETE_ITEM,REMOVE_ITEM_WAIT_LIST, RESET_APP} from "../constants/itemConstant"
+import {
+  CREATE_ITEM, 
+  GET_ALL_ITEMS, 
+  RENT_ITEM, 
+  RETURN_ITEM, 
+  WAIT_LIST, 
+  PROFILE_ITEMS, 
+  DELETE_ITEM,
+  REMOVE_ITEM_WAIT_LIST, 
+  GET_CREATED_ITEMS,
+  GET_RENTED_ITEMS, 
+  GET_WAIT_LIST_ITEMS
+} from "../constants/itemConstant"
 
 
 export const createItem = (itemInfo) => async (dispatch) => {
@@ -47,12 +59,15 @@ export const rentItem = (itemInfo) => async (dispatch) => {
 
 export const waitListItem = (itemInfo) => async (dispatch) => {
   try {
-    // console.log("Check?")
+    console.log("Check?")
     let success = await Axios.put("/api/items/wait-list-item", itemInfo)
+    console.log("Check#2", success)
     dispatch({
       type: WAIT_LIST,
       payload: success.data,
     });
+    console.log("Test Test")
+    return Promise.resolve();
   } catch (e) {
     // console.log("ERROR", e)
     return Promise.reject(e.response.data.message);
@@ -77,6 +92,63 @@ export const removeWaitList = (itemInfo) => async (dispatch) => {
     dispatch({
       type: REMOVE_ITEM_WAIT_LIST,
       payload: success.data,
+    });
+    return Promise.resolve();
+  } catch (e) {
+    // console.log("ERROR", e)
+    return Promise.reject(e.response.data.message);
+  }
+};
+// export const getAllProfileItems = (itemInfo) => async (dispatch) => {
+//   try {
+//     // console.log("Check?")
+//     let success = await Axios.get("/api/items/all-profile-items", itemInfo)
+//     dispatch({
+//       type: PROFILE_ITEMS,
+//       payload: success.data,
+//       // type: RESET_APP,
+//     });
+//   } catch (e) {
+//     // console.log("ERROR", e)
+//     return Promise.reject(e.response.data.message);
+//   }
+// };
+export const getAllCreatedItems = (itemInfo) => async (dispatch) => {
+  try {
+    // console.log("Check?")
+    let success = await Axios.get("/api/items/all-created-items", itemInfo)
+    dispatch({
+      type: GET_CREATED_ITEMS,
+      payload: success.data,
+      // type: RESET_APP,
+    });
+  } catch (e) {
+    // console.log("ERROR", e)
+    return Promise.reject(e.response.data.message);
+  }
+};
+export const getAllRentedItems = (itemInfo) => async (dispatch) => {
+  try {
+    // console.log("Check?")
+    let success = await Axios.get("/api/items/all-rented-items", itemInfo)
+    dispatch({
+      type: GET_RENTED_ITEMS,
+      payload: success.data,
+      // type: RESET_APP,
+    });
+  } catch (e) {
+    // console.log("ERROR", e)
+    return Promise.reject(e.response.data.message);
+  }
+};
+export const getAllWaitListItems = (itemInfo) => async (dispatch) => {
+  try {
+    // console.log("Check?")
+    let success = await Axios.get("/api/items/all-wait-list-items", itemInfo)
+    dispatch({
+      type: GET_WAIT_LIST_ITEMS,
+      payload: success.data,
+      // type: RESET_APP,
     });
   } catch (e) {
     // console.log("ERROR", e)
