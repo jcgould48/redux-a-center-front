@@ -1,6 +1,6 @@
 import Axios from "../lib/Axios/Axios";
 import setAuthToken from "../lib/Axios/setAuthToken"
-import {CREATE_ITEM, GET_ALL_ITEMS, RENT_ITEM, RETURN_ITEM, WAIT_LIST, PROFILE_ITEMS, DELETE_ITEM,REMOVE_ITEM_WAIT_LIST} from "../constants/itemConstant"
+import {CREATE_ITEM, GET_ALL_ITEMS, RENT_ITEM, RETURN_ITEM, WAIT_LIST, PROFILE_ITEMS, DELETE_ITEM,REMOVE_ITEM_WAIT_LIST, RESET_APP} from "../constants/itemConstant"
 
 
 export const createItem = (itemInfo) => async (dispatch) => {
@@ -38,8 +38,9 @@ export const rentItem = (itemInfo) => async (dispatch) => {
       type: RENT_ITEM,
       payload: success.data,
     });
+    // console.log("PAYLOAD",success.data)
   } catch (e) {
-    console.log("ERROR", e)
+    // console.log("ERROR", e)
     return Promise.reject(e.response.data.message);
   }
 };
@@ -53,7 +54,7 @@ export const waitListItem = (itemInfo) => async (dispatch) => {
       payload: success.data,
     });
   } catch (e) {
-    console.log("ERROR", e)
+    // console.log("ERROR", e)
     return Promise.reject(e.response.data.message);
   }
 };
@@ -66,7 +67,7 @@ export const returnItem = (itemInfo) => async (dispatch) => {
       payload: success.data,
     });
   } catch (e) {
-    console.log("ERROR", e)
+    // console.log("ERROR", e)
     return Promise.reject(e.response.data.message);
   }
 };
@@ -78,7 +79,7 @@ export const removeWaitList = (itemInfo) => async (dispatch) => {
       payload: success.data,
     });
   } catch (e) {
-    console.log("ERROR", e)
+    // console.log("ERROR", e)
     return Promise.reject(e.response.data.message);
   }
 };
@@ -88,10 +89,11 @@ export const getAllProfileItems = (itemInfo) => async (dispatch) => {
     let success = await Axios.get("/api/items/all-profile-items", itemInfo)
     dispatch({
       type: PROFILE_ITEMS,
-      payload: success.data
+      payload: success.data,
+      // type: RESET_APP,
     });
   } catch (e) {
-    console.log("ERROR", e)
+    // console.log("ERROR", e)
     return Promise.reject(e.response.data.message);
   }
 };
@@ -103,7 +105,7 @@ export const deleteItem = (id) => async (dispatch) => {
       payload: success.data
     });
   } catch (e) {
-    console.log("ERROR", e)
+    // console.log("ERROR", e)
     return Promise.reject(e.response.data.message);
   }
 };

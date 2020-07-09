@@ -26,5 +26,5 @@ style=null,
 ButtonGroup.propTypes = {
     buttonStyle: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    disabled: PropTypes.bool.isRequired,
+    // disabled: PropTypes.bool.isRequired,
   };

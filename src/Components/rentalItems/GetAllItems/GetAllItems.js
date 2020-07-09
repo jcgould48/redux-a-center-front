@@ -39,8 +39,10 @@ class GetAllItems extends Component {
    
   handleWaitList = async (item) => {
     try {
+      // console.log("is this button working", item)
       await this.props.waitListItem(item);
-      successToast("You are on the wait list!");
+
+      successToast("Wait Listed!");
     } catch (e) {
       failureToast(e);
     }
@@ -60,10 +62,11 @@ class GetAllItems extends Component {
                   rentAmount,
                   description,
                   availability,
+                  _id
                 } = itemCard;
                 console.log("ITEMCARD", itemCard);
                 return (
-        <div className="card" >
+        <div className="card" key={_id}>
             <img className="card-img-top" src="..." alt="Card image cap"/>
             <div className="card-body">
                 <h5 className="card-title">{itemName}</h5>

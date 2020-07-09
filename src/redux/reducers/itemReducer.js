@@ -15,9 +15,13 @@ const initialState = {
   rentedItems: [],
   waitListItems: [],
 };
+const usersDefaultState = []
 
 export default function (state = initialState, action) {
   switch (action.type) {
+    // case "RESET_APP":
+    // return usersDefaultState;
+
     case CREATE_ITEM:
     return {
         ...state,
@@ -28,13 +32,21 @@ export default function (state = initialState, action) {
         ...state,
         rentalItems: [...action.payload],
       };
-    case RENT_ITEM:
+      case RENT_ITEM:
+        let mapper = state.rentalItems.map(item => {
+          if (item._id === action.payload._id) {
+            return {
+              ...item,
+              availability:false,
+            }
+          }
+          return item
+        });
       return {
         ...state,
-        
-        rentalItems: [action.payload],
-        rentedItems: [...state.rentedItems, ...action.payload.rented],
-      };
+        rentalItems: mapper
+        };
+       
     case RETURN_ITEM:
       return {
         ...state,
@@ -45,14 +57,12 @@ export default function (state = initialState, action) {
     case WAIT_LIST:
       return {
         ...state,
-        rentalItems: [action.payload],
+        // rentalItems: [action.payload],
         waitListItems: [...state.waitListItems, ...action.payload.waitListed],
       };
     case PROFILE_ITEMS:
-      // console.log("payload",action.payload.waitListed)
-      // console.log("payload",action.payload.rented)
-      console.log("payload",action.payload.created)
-      console.log("STATE",state)
+      // console.log("payload",action.payload.created)
+      // console.log("STATE",state)
       return {
         ...state,
         // rentalItems: [...state.rentalItems],
@@ -69,7 +79,6 @@ export default function (state = initialState, action) {
     case REMOVE_ITEM_WAIT_LIST:
       return {
         ...state,
-        rentalItems: [action.payload],
         waitListItems: state.waitListItems.filter(
           (item)=> item._id !== action.payload._id)
       };

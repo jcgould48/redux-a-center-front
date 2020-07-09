@@ -11,15 +11,24 @@ import { successToast, failureToast } from "../Toastify/Toast";
 import ButtonGroup from "../SharedGroup/ButtonGroup";
 import "./Profile.css"
 export class Profile extends Component {
+    
 
   async componentDidMount() {
     if (
       this.props.authUser.isAuthenticated &&
       this.props.authUser.user !== null
     ) {
-      await this.props.getAllProfileItems();
+        if(this.props.rentalItem.createdItems.length === 0 
+            // ||
+            // this.props.rentalItem.rentedItems.length === 0||
+            // this.props.rentalItem.waitListedItems.length === 0
+            ){
+                await this.props.getAllProfileItems();
+        }
     }
   }
+
+ 
 
   handleReturnItem = async (item) => {
     try {
@@ -70,10 +79,11 @@ export class Profile extends Component {
                   itemName,
                   rentAmount,
                   description,
+                  _id
                 } = itemCard;
                 // console.log("ITEMCARDProfile", itemCard);
                 return (
-        <div className="card" >
+        <div className="card" key={_id} >
             <img className="card-img-top" src="..." alt="Card image cap"/>
             <div className="card-body">
                 <h5 className="card-title">{itemName}</h5>
@@ -102,10 +112,11 @@ export class Profile extends Component {
                     itemName,
                     rentAmount,
                     description,
+                    _id
                 } = itemCard;
                 // console.log("ITEMCARD2", itemCard);
                 return (
-        <div className="card" >
+        <div className="card" key={_id} >
             <img className="card-img-top" src="..." alt="Card image cap"/>
             <div className="card-body">
                 <h5 className="card-title">{itemName}</h5>
@@ -134,10 +145,11 @@ export class Profile extends Component {
                   itemName,
                   rentAmount,
                   description,
+                  _id
                 } = itemCard;
                 // console.log("ITEMCARD3", itemCard);
                 return (
-        <div className="card" >
+        <div className="card" key={_id}>
             <img className="card-img-top" src="..." alt="Card image cap"/>
             <div className="card-body">
                 <h5 className="card-title">{itemName}</h5>

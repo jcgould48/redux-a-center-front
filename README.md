@@ -1,3 +1,9 @@
+With new log in need to clear out item state
+doubling up of items
+weird button thing onrent
+Waitlist button - no toast and not immediately updating
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
