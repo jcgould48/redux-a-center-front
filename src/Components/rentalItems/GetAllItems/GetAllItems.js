@@ -39,9 +39,10 @@ class GetAllItems extends Component {
    
   handleWaitList = async (item) => {
     try {
-      // console.log("is this button working", item)
-      await this.props.waitListItem(item);
-
+      // console.log("is this button working")
+      let success= await this.props.waitListItem(item);
+      // console.log("is this button working2")
+    
       successToast("Wait Listed!");
     } catch (e) {
       failureToast(e);
@@ -64,7 +65,7 @@ class GetAllItems extends Component {
                   availability,
                   _id
                 } = itemCard;
-                console.log("ITEMCARD", itemCard);
+                // console.log("ITEMCARD", itemCard);
                 return (
         <div className="card" key={_id}>
             <img className="card-img-top" src="..." alt="Card image cap"/>

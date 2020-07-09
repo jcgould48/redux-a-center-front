@@ -5,7 +5,10 @@ import {
   WAIT_LIST, 
   PROFILE_ITEMS, 
   DELETE_ITEM, 
-  REMOVE_ITEM_WAIT_LIST 
+  REMOVE_ITEM_WAIT_LIST,
+  GET_WAIT_LIST_ITEMS,
+  GET_RENTED_ITEMS,
+  GET_CREATED_ITEMS
 } from "../constants/itemConstant";
 
 const initialState = {
@@ -55,19 +58,36 @@ export default function (state = initialState, action) {
           (item)=> item._id !== action.payload._id)
       };
     case WAIT_LIST:
+      // console.log("Check#3", action.payload)
+      // console.log("Check#3", action.payload.itemsWaitListed)
       return {
         ...state,
         // rentalItems: [action.payload],
-        waitListItems: [...state.waitListItems, ...action.payload.waitListed],
+        waitListItems: [...state.waitListItems, ...action.payload.itemsWaitListed],
       };
-    case PROFILE_ITEMS:
-      // console.log("payload",action.payload.created)
-      // console.log("STATE",state)
+    // case PROFILE_ITEMS:
+    //   // console.log("payload",action.payload.created)
+    //   // console.log("STATE",state)
+    //   return {
+    //     ...state,
+    //     // rentalItems: [...state.rentalItems],
+    //     createdItems: [...state.createdItems, ...action.payload.created],
+    //     rentedItems: [...state.rentedItems, ...action.payload.rented],
+    //     waitListItems: [...state.waitListItems, ...action.payload.itemsWaitListed],
+    //   };
+    case GET_CREATED_ITEMS:
       return {
         ...state,
-        // rentalItems: [...state.rentalItems],
         createdItems: [...state.createdItems, ...action.payload.created],
+      };
+    case GET_RENTED_ITEMS:
+      return {
+        ...state,
         rentedItems: [...state.rentedItems, ...action.payload.rented],
+      };
+    case GET_WAIT_LIST_ITEMS:
+      return {
+        ...state,
         waitListItems: [...state.waitListItems, ...action.payload.waitListed],
       };
     case DELETE_ITEM:
