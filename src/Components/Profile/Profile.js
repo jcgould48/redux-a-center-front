@@ -18,17 +18,19 @@ export class Profile extends Component {
       this.props.authUser.isAuthenticated &&
       this.props.authUser.user !== null
     ) {
-        if(this.props.rentalItem.createdItems.length === 0 
+        if(this.props.rentalItem.createdItems.length|| this.props.rentalItem.rentedItems.length === 0 
             // ||
             // this.props.rentalItem.rentedItems.length === 0||
             // this.props.rentalItem.waitListedItems.length === 0
             ){
-                await this.props.getAllProfileItems();
+            await this.props.getAllProfileItems();
+          } else if (this.props.rentalItem.rentedItems.length || this.props.rentalItem.waitListedItems.length ===0) {
+          await this.props.getAllProfileItems
         }
     }
   }
 
- 
+
 
   handleReturnItem = async (item) => {
     try {
