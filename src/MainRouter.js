@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import {Route, Switch} from 'react-router-dom'
 import Toastify from "./Components/Toastify/Toastify";
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute'
+// import Footer from './Components/Footer/Footer'
 
-
+const Footer = React.lazy(() => import('./Components/Footer/Footer'))
 const Signup = React.lazy(() => import("./Components/Signup/Signup"));
 const Navbar = React.lazy(() => import("./Components/Navbar/Navbar"));
 const Login = React.lazy(() => import("./Components/Login/Login"));
@@ -28,6 +29,7 @@ export default class MainRouter extends Component {
                     <PrivateRoute exact path='/user-profile' component={Profile}/>
                     <Route exact path= '/' component={Landing} />
                 </Switch>
+                <Footer />
                 {/* <h1>Redux a Center</h1> */}
             </>
         )
