@@ -61,13 +61,13 @@ export const waitListItem = (itemInfo) => async (dispatch) => {
   try {
     // console.log("Check?")
     let success = await Axios.put("/api/items/wait-list-item", itemInfo)
-    console.log("Check#2", success)
+    // console.log("Check#2", success)
     dispatch({
       type: WAIT_LIST,
       payload: success.data,
     });
     // console.log("Test Test")
-    return Promise.resolve();
+    // return Promise.resolve();
   } catch (e) {
     // console.log("ERROR", e)
     return Promise.reject(e.response.data.message);
@@ -93,7 +93,7 @@ export const removeWaitList = (itemInfo) => async (dispatch) => {
       type: REMOVE_ITEM_WAIT_LIST,
       payload: success.data,
     });
-    return Promise.resolve();
+    // return Promise.resolve();
   } catch (e) {
     // console.log("ERROR", e)
     return Promise.reject(e.response.data.message);

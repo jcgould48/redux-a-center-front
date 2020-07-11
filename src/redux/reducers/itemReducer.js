@@ -59,34 +59,26 @@ export default function (state = initialState, action) {
       };
     case WAIT_LIST:
       // console.log("Check#3", action.payload)
-      console.log("Check#3", action.payload.itemsWaitListed)
+      // console.log("Check#3", action.payload.itemsWaitListed)
       return {
         ...state,
         // rentalItems: [action.payload],
-        waitListItems: [...state.waitListItems, ...action.payload.itemsWaitListed],
+        rentalItems: [...state.rentalItems],
+        // waitListItems: [...state.waitListItems, ...action.payload.itemsWaitListed],
       };
-    // case PROFILE_ITEMS:
-    //   // console.log("payload",action.payload.created)
-    //   // console.log("STATE",state)
-    //   return {
-    //     ...state,
-    //     // rentalItems: [...state.rentalItems],
-    //     createdItems: [...state.createdItems, ...action.payload.created],
-    //     rentedItems: [...state.rentedItems, ...action.payload.rented],
-    //     waitListItems: [...state.waitListItems, ...action.payload.itemsWaitListed],
-    //   };
     case GET_CREATED_ITEMS:
       return {
         ...state,
         createdItems: [...state.createdItems, ...action.payload.created],
       };
     case GET_RENTED_ITEMS:
+      // console.log("Rented Items problems1", action.payload.rented)
       return {
         ...state,
         rentedItems: [...state.rentedItems, ...action.payload.rented],
       };
     case GET_WAIT_LIST_ITEMS:
-      console.log("WaitList problems1", action.payload.waitListed)
+      // console.log("WaitList problems1", action.payload.waitListed)
       return {
         ...state,
         waitListItems: [...state.waitListItems, ...action.payload.waitListed],
@@ -98,9 +90,10 @@ export default function (state = initialState, action) {
              (item)=> item._id !== action.payload._id)
       };
     case REMOVE_ITEM_WAIT_LIST:
-      console.log("WaitList problems2", state.waitListItems)
+      // console.log("WaitList problems2", state.waitListItems)
       return {
         ...state,
+        // rentalItems: [action.payload],
         waitListItems: state.waitListItems.filter(
           (item)=> item._id !== action.payload._id)
       };

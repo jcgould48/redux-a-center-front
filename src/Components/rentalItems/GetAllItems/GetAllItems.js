@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import DatePicker from "react-datepicker";
-import { parseISO } from "date-fns";
 import { getAllItems, rentItem, returnItem, waitListItem, getAllProfileItems} from "../../../redux/actions/itemActions";
 import { successToast, failureToast } from "../../Toastify/Toast";
-import { availability, rentedItems } from '../../../redux/reducers/itemReducer'
+// import { availability, rentedItems } from '../../../redux/reducers/itemReducer'
 import ButtonGroup from "../../SharedGroup/ButtonGroup";
 import "./GetAllItems.css";
 
@@ -40,9 +38,7 @@ class GetAllItems extends Component {
   handleWaitList = async (item) => {
     try {
       // console.log("is this button working")
-      let success= await this.props.waitListItem(item);
-      // console.log("is this button working2")
-    
+      await this.props.waitListItem(item);
       successToast("Wait Listed!");
     } catch (e) {
       failureToast(e);
@@ -53,7 +49,10 @@ class GetAllItems extends Component {
     // console.log("####", this.props);
     return (
       <>
-        <h1>ITEMS</h1>
+      <br></br>
+      <div className="logo-header">
+      <img  className="main-logo" src="/images/main-logo-full.png" alt="Main Logo" />
+        </div>
         <hr />
         <div className="table-container">
           {this.props.rentalItem.rentalItems.length > 0
@@ -68,21 +67,21 @@ class GetAllItems extends Component {
                 // console.log("ITEMCARD", itemCard);
                 return (
         <div className="card" key={_id}>
-            <img className="card-img-top" src="/images/logo.png" alt="Card image cap" style={{width:"210px"}} />
+            <img className="card-img-top" src="/images/logo.png" alt="Card image cap" style={{width:"210px", justifyContent:"center"}} />
             <div className="card-body">
                 <h5 className="card-title">{itemName}</h5>
-                <p className="card-text">{rentAmount}</p>
-                <p className="card-text">{description}</p>
+                <p className="card-text">Weekly Price: ${rentAmount}</p>
+                <p className="card-text">Description: {description}</p>
                 {availability === true ?
                 <ButtonGroup
-                buttonStyle="form-button"
-                className="btn btn-primary"
+                buttonStyle="form-button-rent"
+                className="btn btn-outline-primary"
                 title="Rent Now!"
                 onClick={() => this.handleRentNow(itemCard)}
               />
               :
               <ButtonGroup
-                buttonStyle="form-button"
+                buttonStyle="form-button-wait"
                 className="btn btn-primary"
                 title="Waiting List"
                 onClick={() => this.handleWaitList(itemCard)}

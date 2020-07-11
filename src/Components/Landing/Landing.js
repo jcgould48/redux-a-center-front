@@ -17,7 +17,11 @@ export default class Landing extends Component {
     render() {
         return (
             <div>
-                <h1>Welcome to Redux a Center</h1>
+                <br></br>
+      <div className="logo-header">
+      <img  className="main-logo" src="/images/main-logo-full.png" alt="Main Logo" />
+        </div>
+                {/* <h1>Welcome to Redux a Center</h1> */}
                 <Carousel>  
                     <Carousel.Item>
                     <img

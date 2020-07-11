@@ -1,6 +1,6 @@
 header {
     height: 50px;
-    background: #F4791F;
+    background: #ffa300;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -26,3 +26,4 @@ header {
   .selected {
     color: red;
   }
+

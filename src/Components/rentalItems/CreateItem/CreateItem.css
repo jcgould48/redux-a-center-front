@@ -23,7 +23,7 @@
     width: 5rem;
     padding: 10px 8px;
     border-radius: 20px;
-    background-color: grey;
+    background-color: blue;
     color: white;
     margin-top: 25px;
   }
@@ -39,3 +39,5 @@
   .invalid-message {
     color: red;
   }
+
+ 

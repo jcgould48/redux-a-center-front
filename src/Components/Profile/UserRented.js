@@ -34,7 +34,7 @@ export class Profile extends Component {
     return (
         <>
         <hr />
-        <h1>Rented Items</h1>
+        <h2>Rented Items</h2>
         <hr />
         <div className="table-container">
             {this.props.rentalItem.rentedItems.length > 0
@@ -52,11 +52,11 @@ export class Profile extends Component {
             <div className="card-body">
                 <h5 className="card-title">{itemName}</h5>
                 
-                <p className="card-text">{rentAmount}</p>
-                <p className="card-text">{description}</p>
+                <p className="card-text">Weekly Price: ${rentAmount}</p>
+                <p className="card-text">Description: {description}</p>
               <ButtonGroup
-              buttonStyle="form-button"
-              className="btn btn-primary"
+              buttonStyle="return-button"
+              className="btn btn-outline-success"
               title="Return"
               onClick={() => this.handleReturnItem(itemCard)}
             />

@@ -1,4 +1,13 @@
 .d-block {
     text-align: center;
-    width: 40%;
+    width: 30%;
 }
+.logo-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+  }
+
+  .main-logo{
+      height: 150px
+  }

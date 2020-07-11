@@ -1,5 +1,40 @@
+.welcome{
+    display: flex;
+    flex-direction: column;
+    align-items: center
+  }
+
 .table-container{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
+
+.delete-button {
+    width: 10rem;
+    padding: 10px 8px;
+    border-radius: 20px;
+    background-color: red;
+    color: white;
+    margin-top: 25px;
+  }
+  .return-button {
+    width: 10rem;
+    padding: 10px 8px;
+    border-radius: 20px;
+    background-color:lightgreen;
+    color: white;
+    margin-top: 25px;
+  }
+
+  .remove-button {
+    width: 10rem;
+    padding: 10px 8px;
+    border-radius: 20px;
+    background-color: darkgoldenrod;
+    color: white;
+    margin-top: 25px;
+  }
+
+ 

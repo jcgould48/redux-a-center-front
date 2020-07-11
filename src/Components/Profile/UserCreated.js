@@ -12,7 +12,7 @@ export class Profile extends Component {
     
 
   async componentDidMount() {
-    console.log("Bugs2", this.props.rentalItem.waitListItems)
+    // console.log("Bugs2", this.props.rentalItem.waitListItems)
     if (
       this.props.authUser.isAuthenticated &&
       this.props.authUser.user !== null
@@ -37,7 +37,6 @@ export class Profile extends Component {
 
     return (
         <>
-        {/* <h1>Hello {user} </h1> */}
         <hr />
         <h2>Created Items</h2>
         <hr />
@@ -57,11 +56,11 @@ export class Profile extends Component {
             <div className="card-body">
                 <h5 className="card-title">{itemName}</h5>
                 
-                <p className="card-text">{rentAmount}</p>
-                <p className="card-text">{description}</p>
+                <p className="card-text">Weekly Price: ${rentAmount}</p>
+                <p className="card-text">Description: {description}</p>
               <ButtonGroup
-              buttonStyle="form-button"
-              className="btn btn-primary"
+              buttonStyle="delete-button"
+              className="btn btn-outline-danger"
               title="Delete Item"
               onClick={() => this.handleDelete(itemCard)}
             />

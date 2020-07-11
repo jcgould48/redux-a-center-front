@@ -12,6 +12,10 @@ export class Profile extends Component {
 
     return (
         <>
+        <div className="welcome">
+         <h1>Welcome back {this.props.authUser.user.username}! </h1>
+         <h3>Check out your activity below...</h3>
+         </div>
         <UserCreated/>
         <UserRented/>
         <UserWaitList/>

@@ -12,7 +12,7 @@ export class Profile extends Component {
     
 
 async componentDidMount() {
-    console.log("Bugs", this.props.rentalItem.waitListItems)
+    // console.log("Bugs", this.props.rentalItem.waitListItems)
     if (
         this.props.authUser.isAuthenticated &&
         this.props.authUser.user !== null
@@ -35,7 +35,7 @@ async componentDidMount() {
     return (
         <>
         <hr />
-        <h1>Wait Listed Items</h1>
+        <h2>Wait Listed Items</h2>
         <hr />
         <div className="table-container">
           {this.props.rentalItem.waitListItems.length > 0
@@ -53,11 +53,11 @@ async componentDidMount() {
             <div className="card-body">
                 <h5 className="card-title">{itemName}</h5>
                 
-                <p className="card-text">{rentAmount}</p>
-                <p className="card-text">{description}</p>
+                <p className="card-text">Weekly Price: ${rentAmount}</p>
+                <p className="card-text">Description: {description}</p>
               <ButtonGroup
-              buttonStyle="form-button"
-              className="btn btn-primary"
+              buttonStyle="remove-button"
+              className="btn btn-outline-warning"
               title="Remove"
               onClick={() => this.handleRemoveWaitList(itemCard)}
             />

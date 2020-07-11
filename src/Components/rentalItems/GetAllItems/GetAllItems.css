@@ -7,3 +7,30 @@
 .h1{
     font-style: oblique bold; 
 }
+.logo-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+  }
+
+  .main-logo{
+      height: 100px
+  }
+
+
+  .form-button-rent {
+    width: 10rem;
+    padding: 10px 8px;
+    border-radius: 20px;
+    background-color: lightseagreen;
+    color: white;
+    margin-top: 25px;
+  }
+  .form-button-wait {
+    width: 10rem;
+    padding: 10px 8px;
+    border-radius: 20px;
+    background-color: #ffa300;
+    color: white;
+    margin-top: 25px;
+  }
