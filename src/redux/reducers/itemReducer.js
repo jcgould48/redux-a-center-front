@@ -18,7 +18,7 @@ const initialState = {
   rentedItems: [],
   waitListItems: [],
 };
-const usersDefaultState = []
+// const usersDefaultState = []
 
 export default function (state = initialState, action) {
   switch (action.type) {
@@ -59,7 +59,7 @@ export default function (state = initialState, action) {
       };
     case WAIT_LIST:
       // console.log("Check#3", action.payload)
-      // console.log("Check#3", action.payload.itemsWaitListed)
+      console.log("Check#3", action.payload.itemsWaitListed)
       return {
         ...state,
         // rentalItems: [action.payload],
@@ -86,6 +86,7 @@ export default function (state = initialState, action) {
         rentedItems: [...state.rentedItems, ...action.payload.rented],
       };
     case GET_WAIT_LIST_ITEMS:
+      console.log("WaitList problems1", action.payload.waitListed)
       return {
         ...state,
         waitListItems: [...state.waitListItems, ...action.payload.waitListed],
@@ -97,6 +98,7 @@ export default function (state = initialState, action) {
              (item)=> item._id !== action.payload._id)
       };
     case REMOVE_ITEM_WAIT_LIST:
+      console.log("WaitList problems2", state.waitListItems)
       return {
         ...state,
         waitListItems: state.waitListItems.filter(

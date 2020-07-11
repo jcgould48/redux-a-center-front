@@ -11,6 +11,7 @@ export class Navbar extends Component {
         const { isAuthenticated, user} = this.props.authUser
         return (
             <header>
+                <img className="main-logo" src="/images/main-logo.png" alt="Main Logo" style={{width:"150px"}}/>
                 {/* <NavLink
                     to='/'
                     className='navbar-home'

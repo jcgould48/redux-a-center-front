@@ -50,7 +50,7 @@ class GetAllItems extends Component {
   };
   render() {
     // const { itemCard } = this.state;
-    console.log("####", this.props);
+    // console.log("####", this.props);
     return (
       <>
         <h1 header="header">ITEMS</h1>
@@ -68,7 +68,7 @@ class GetAllItems extends Component {
                 // console.log("ITEMCARD", itemCard);
                 return (
         <div className="card" key={_id}>
-            <img className="card-img-top" src="..." alt="Card image cap"/>
+            <img className="card-img-top" src="/images/logo.png" alt="Card image cap" style={{width:"210px"}} />
             <div className="card-body">
                 <h5 className="card-title">{itemName}</h5>
                 <p className="card-text">{rentAmount}</p>

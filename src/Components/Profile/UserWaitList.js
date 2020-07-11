@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
-  getAllItems,
+//   getAllItems,
   getAllWaitListItems,
   removeWaitList
 } from "../../redux/actions/itemActions";
@@ -12,6 +12,7 @@ export class Profile extends Component {
     
 
 async componentDidMount() {
+    console.log("Bugs", this.props.rentalItem.waitListItems)
     if (
         this.props.authUser.isAuthenticated &&
         this.props.authUser.user !== null
@@ -22,7 +23,7 @@ async componentDidMount() {
 
   handleRemoveWaitList = async (item) => {
     try {
-     let success = await this.props.removeWaitList(item);
+     await this.props.removeWaitList(item);
 
       successToast("Item removed from wait list!");
     } catch (e) {
@@ -48,7 +49,7 @@ async componentDidMount() {
                 // console.log("ITEMCARD3", itemCard);
                 return (
         <div className="card" key={_id}>
-            <img className="card-img-top" src="..." alt="Card image cap"/>
+            <img className="card-img-top" src="/images/logo3.png" alt="Card image cap" style={{width:"240px"}}/>
             <div className="card-body">
                 <h5 className="card-title">{itemName}</h5>
                 
@@ -77,7 +78,7 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, {
-  getAllItems,
+//   getAllItems,
   removeWaitList,
   getAllWaitListItems,
 })(Profile);
