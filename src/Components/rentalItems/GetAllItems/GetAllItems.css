@@ -1,9 +1,11 @@
 .table-container{
-    background: green;
+    background:orange;
+    font-family: fantasy;
 }
 .card{
     background-color: blue;
 }
-.h1{
-    font-style: oblique bold; 
+.header{
+    font-style: bold;
+    font-family: fantasy ;
 }

@@ -29,7 +29,6 @@ export default class AuthNavLink extends Component {
                         Main Paige
                     </NavLink>
                 </li>
-                
                 <li>
                     <NavLink
                         to='/create-item'
@@ -52,6 +51,9 @@ export default class AuthNavLink extends Component {
                         Log out
                        
                     </NavLink>
+                </li>
+                <li>
+                    <img src="/images/LogoMakr_8rMMH9.png"/>
                 </li>
                
             </ul>

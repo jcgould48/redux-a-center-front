@@ -53,7 +53,7 @@ class GetAllItems extends Component {
     console.log("####", this.props);
     return (
       <>
-        <h1>ITEMS</h1>
+        <h1 header="header">ITEMS</h1>
         <hr />
         <div className="table-container">
           {this.props.rentalItem.rentalItems.length > 0
