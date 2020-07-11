@@ -48,7 +48,7 @@ export class Profile extends Component {
                 // console.log("ITEMCARD2", itemCard);
                 return (
         <div className="card" key={_id} >
-            <img className="card-img-top" src="..." alt="Card image cap"/>
+            <img className="card-img-top" src="/images/logo2.png" alt="Card image cap" style={{width:"240px"}}/>
             <div className="card-body">
                 <h5 className="card-title">{itemName}</h5>
                 

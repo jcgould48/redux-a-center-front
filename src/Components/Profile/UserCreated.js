@@ -12,6 +12,7 @@ export class Profile extends Component {
     
 
   async componentDidMount() {
+    console.log("Bugs2", this.props.rentalItem.waitListItems)
     if (
       this.props.authUser.isAuthenticated &&
       this.props.authUser.user !== null
@@ -52,7 +53,7 @@ export class Profile extends Component {
                 // console.log("ITEMCARDProfile", itemCard);
                 return (
         <div className="card" key={_id} >
-            <img className="card-img-top" src="..." alt="Card image cap"/>
+            <img className="card-img-top" src="/images/logo.png" alt="Card image cap" style={{width:"240px"}}/>
             <div className="card-body">
                 <h5 className="card-title">{itemName}</h5>
                 

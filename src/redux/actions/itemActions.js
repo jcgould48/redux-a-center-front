@@ -59,14 +59,14 @@ export const rentItem = (itemInfo) => async (dispatch) => {
 
 export const waitListItem = (itemInfo) => async (dispatch) => {
   try {
-    console.log("Check?")
+    // console.log("Check?")
     let success = await Axios.put("/api/items/wait-list-item", itemInfo)
     console.log("Check#2", success)
     dispatch({
       type: WAIT_LIST,
       payload: success.data,
     });
-    console.log("Test Test")
+    // console.log("Test Test")
     return Promise.resolve();
   } catch (e) {
     // console.log("ERROR", e)
