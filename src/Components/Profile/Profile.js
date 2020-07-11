@@ -7,9 +7,7 @@ import UserWaitList from "./UserWaitList"
 import "./Profile.css"
 export class Profile extends Component {
     
-
   render() {
-
     return (
         <>
         <div className="welcome">

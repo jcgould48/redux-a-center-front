@@ -22,6 +22,7 @@ export class Navbar extends Component {
                     Home
                 </NavLink> */}
                 <nav>
+                    
                     {user && isAuthenticated ? (
                         <AuthNavLink
                             {...user}

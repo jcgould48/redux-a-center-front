@@ -1,5 +1,6 @@
 .table-container{
-    background: green;
+    background:orange;
+    font-family: fantasy;
 }
 .card{
     background-color: blue;
@@ -34,3 +35,7 @@
     color: white;
     margin-top: 25px;
   }
+.header{
+    font-style: bold;
+    font-family: fantasy ;
+}
