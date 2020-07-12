@@ -48,7 +48,7 @@ class GetAllItems extends Component {
     // const { itemCard } = this.state;
     // console.log("####", this.props);
     return (
-      <>
+      <div className="background-page">
       <br></br>
       <div className="logo-header">
       <img  className="main-logo" src="/images/main-logo-full.png" alt="Main Logo" />
@@ -93,7 +93,7 @@ class GetAllItems extends Component {
         }):
         null}
         </div>
-      </>
+      </div>
     );
   }
 }

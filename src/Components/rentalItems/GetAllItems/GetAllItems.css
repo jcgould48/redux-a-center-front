@@ -5,7 +5,13 @@
 /* .card{
     background-color: blue;
 } */
-
+body {
+    background-image: url("https://www.publicdomainpictures.net/pictures/210000/velka/living-room-1490132509L6W.jpg");
+    background-color: #cccccc;
+    opacity: 90%;
+    /* background-position: 10%;  */
+    background-repeat: repeat-y;
+   }
 .table-container{
     /* background:orange; */
     display: flex;
@@ -44,7 +50,7 @@
     width: 10rem;
     padding: 10px 8px;
     border-radius: 20px;
-    background-color: #ffa300;
+    background-color: lightcoral;
     color: white;
     margin-top: 25px;
   }
