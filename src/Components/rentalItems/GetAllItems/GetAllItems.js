@@ -49,14 +49,10 @@ class GetAllItems extends Component {
     // console.log("####", this.props);
     return (
       <>
-<<<<<<< HEAD
       <br></br>
       <div className="logo-header">
       <img  className="main-logo" src="/images/main-logo-full.png" alt="Main Logo" />
         </div>
-=======
-        <h1 header="header">ITEMS</h1>
->>>>>>> 0b09fee22ae000b5ac0f9f43a7e3cc2380f04944
         <hr />
         <div className="table-container">
           {this.props.rentalItem.rentalItems.length > 0

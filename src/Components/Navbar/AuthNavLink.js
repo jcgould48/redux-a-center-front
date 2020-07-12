@@ -53,7 +53,7 @@ export default class AuthNavLink extends Component {
                     </NavLink>
                 </li>
                 <li>
-                    <img src="/images/LogoMakr_8rMMH9.png"/>
+                    {/* <img src="/images/LogoMakr_8rMMH9.png"/> */}
                 </li>
                
             </ul>
