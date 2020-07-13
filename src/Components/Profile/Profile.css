@@ -8,10 +8,10 @@
     width:15rem;
 }
 .background {
-    background-image: url("https://www.publicdomainpictures.net/pictures/210000/velka/living-room-1490132509L6W.jpg");
+    background-image: url("https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
     background-color: #cccccc;
-    opacity: 90%;
-    background-position: 100% 30%; 
+    /* opacity: 90%; */
+    background-position: 60% 50%; 
     background-repeat: repeat-y;
    } 
    
