@@ -1,4 +1,4 @@
-import { SIGN_UP, LOGIN, LOGOUT } from '../constants/authUserConstant';
+import { SIGN_UP, LOGOUT } from '../constants/authUserConstant';
 
 import {
     AUTH_USER_LOGGED_IN_SUCCESSFUL,
