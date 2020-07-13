@@ -9,7 +9,7 @@ export class Profile extends Component {
     
   render() {
     return (
-        <>
+        <div className="background">
         <div className="welcome">
          <h1>Welcome back {this.props.authUser.user.username}! </h1>
          <h3>Check out your activity below...</h3>
@@ -17,7 +17,7 @@ export class Profile extends Component {
         <UserCreated/>
         <UserRented/>
         <UserWaitList/>
-      </>
+      </div>
     );
   }
 }

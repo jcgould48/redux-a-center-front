@@ -5,18 +5,24 @@
 /* .card{
     background-color: blue;
 } */
-body {
+.card{
+    opacity: 90%;
+    width:15rem;
+}
+.background-page {
     background-image: url("https://www.publicdomainpictures.net/pictures/210000/velka/living-room-1490132509L6W.jpg");
     background-color: #cccccc;
     opacity: 90%;
-    /* background-position: 10%;  */
+    background-position: 100% 30%; 
     background-repeat: repeat-y;
-   }
+   } 
+   
+   
 .table-container{
     /* background:orange; */
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap:wrap;
     border:blue;
     font-family: fantasy;
@@ -34,7 +40,8 @@ body {
   }
 
   .main-logo{
-      height: 100px
+      height: 200px;
+      opacity: 70%;
   }
 
 

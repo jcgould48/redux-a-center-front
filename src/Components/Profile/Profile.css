@@ -3,6 +3,18 @@
     flex-direction: column;
     align-items: center
   }
+  .card{
+    opacity: 90%;
+    width:15rem;
+}
+.background {
+    background-image: url("https://www.publicdomainpictures.net/pictures/210000/velka/living-room-1490132509L6W.jpg");
+    background-color: #cccccc;
+    opacity: 90%;
+    background-position: 100% 30%; 
+    background-repeat: repeat-y;
+   } 
+   
 
 .table-container{
     display: flex;
