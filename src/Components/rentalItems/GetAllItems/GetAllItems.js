@@ -51,7 +51,7 @@ class GetAllItems extends Component {
       <div className="background-page">
       <br></br>
       <div className="logo-header">
-      <img  className="main-logo" src="/images/main-logo-full.png" alt="Main Logo" />
+      <img  className="main-logo" src="/images/main-logo-two.png" alt="Main Logo" />
         </div>
         <hr />
         <div className="table-container">
