@@ -16,44 +16,44 @@ export default class Landing extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="background">
                 <br></br>
-      <div className="logo-header">
-      <img  className="main-logo" src="/images/main-logo-full.png" alt="Main Logo" />
+        <div className="logo-header">
+        <img  className="main-logo" src="/images/main-logo-full.png" alt="Main Logo" />
         </div>
                 {/* <h1>Welcome to Redux a Center</h1> */}
                 <Carousel>  
                     <Carousel.Item>
                     <img
-                        className="d-block w-100"
+                        className="d-block w-75" 
                         src="/images/couch.jpg"
                         alt="First slide"
                     />
-                        <Carousel.Caption>
+                        <Carousel.Caption className="caption">
                             <h3>Look at this beautiful couch</h3>
-                            <p> read the fine print </p>
+                            <p> Rent now for faster delivery! </p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                     <img
-                        className="d-block w-100"
-                        src="/images/tv.jpg"
+                        className="d-block w-75"
+                        src="/images/smaller-tv.jpg"
                         alt="Second slide"
                     />
-                        <Carousel.Caption>
-                            <h3>Try out the new UHD TV</h3>
-                            <p> read the fine print</p>
+                        <Carousel.Caption className="caption">
+                            <h3>Try out the new Samsung UHD TV</h3>
+                            <p> Rent now for faster delivery!</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                     <img
-                        className="d-block w-100"
+                        className="d-block w-75"
                         src="/images/washer.jpg"
                         alt="Third slide"
                     />
-                        <Carousel.Caption>
-                            <h3>washing machine</h3>
-                            <p> read the fine print</p>
+                        <Carousel.Caption className="caption">
+                            <h3> Modern Samsung Washer</h3>
+                            <p> Rent now for faster delivery!</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
